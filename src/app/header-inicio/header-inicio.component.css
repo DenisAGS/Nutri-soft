@@ -1,0 +1,144 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+header {
+  position: fixed;
+  top: 0px;
+  left: 0;
+  z-index: 5;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background: #F38B14;
+  height: 70px;
+}
+
+.navbar {
+  display: flex;
+  padding: 0 10px;
+  max-width: 1200px;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar input#menu-toggler {
+  display: none;
+}
+
+.navbar #hamburger-btn {
+  cursor: pointer;
+  display: none;
+}
+
+.navbar .all-links {
+  display: flex;
+  align-items: center;
+}
+
+.navbar .all-links li {
+  position: relative;
+  list-style: none;
+  margin-right: -10px;
+}
+
+.navbar .logo a {
+  display: flex;
+  align-items: center;
+  margin-left: 0;
+  color: #FFFFFF;
+  font-size: 25px;
+}
+
+.navbar .logo img{
+    width: 50px;
+    height: 50px;
+    margin-left: -80px;
+    margin-right: 5px;
+}
+
+.navbar button{
+    height: 40px;
+    width: 155px;
+    margin-right: -60px;
+    flex-shrink: 0;
+    background-color: #081B29;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+header a{
+  margin-left: 40px;
+  text-decoration: none;
+  color: #FFFFFF;
+  font-size: 20px;
+  height: 100%;
+  padding: 20px 0;
+  display: inline-block;
+  font-weight: 500;
+}
+
+header a:hover, footer a:hover {
+  color: #127a7a;
+}
+
+
+@media screen and (max-width:1300px){
+    .navbar button{
+        margin-right: 10px;
+    }
+
+    .navbar .logo img{
+        margin-left: -20px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .navbar .logo img{
+        display: none;
+        }    
+}
+
+@media screen and (max-width: 860px) {
+  .navbar .all-links {
+    position: fixed;
+    left: -100%;
+    width: 300px;
+    display: block;
+    height: 100vh;
+    top: 70px;
+    background: #000;
+    transition: left 0.3s ease;
+  }
+
+  .navbar .logo img{
+    display: none;
+    }    
+
+  .navbar #menu-toggler:checked~.all-links {
+    left: 0;
+  }
+
+  .navbar .all-links li {
+    font-size: 18px;
+  }
+
+  .navbar #hamburger-btn {
+    display: block;
+  }
+}
+
