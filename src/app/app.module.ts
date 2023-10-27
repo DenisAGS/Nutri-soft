@@ -1,12 +1,15 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { InicioPublicacionesComponent } from './inicio-publicaciones/inicio-publicaciones.component';
 import { IniciarSesionComponent } from './iniciar-sesion/iniciar-sesion.component';
 import { RegistroUsuarioComponent } from './registro-usuario/registro-usuario.component';
 import { HeaderInicioComponent } from './header-inicio/header-inicio.component';
+import { NutriologosComponent } from './nutriologos/nutriologos.component';
+import { NosotrosComponent } from './nosotros/nosotros.component';
 
 @NgModule({
   declarations: [
@@ -14,11 +17,14 @@ import { HeaderInicioComponent } from './header-inicio/header-inicio.component';
     InicioPublicacionesComponent,
     IniciarSesionComponent,
     RegistroUsuarioComponent,
-    HeaderInicioComponent
+    HeaderInicioComponent,
+    NutriologosComponent,
+    NosotrosComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

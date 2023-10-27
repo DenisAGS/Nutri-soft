@@ -12,7 +12,7 @@ html {
 }
 
 header {
-  position: fixed;
+  margin-top: -8px;
   top: 0px;
   left: 0;
   z-index: 5;

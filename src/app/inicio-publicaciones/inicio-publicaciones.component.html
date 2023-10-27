@@ -16,24 +16,126 @@
             <div class="publicaciones-inicio">
                 <h1>Bienvenido a Nutri-soft  donde nos preocupamos  por tu salud</h1>
                 <div class="pub-info">
-                    hols
-
+                    <div class="header-info">
+                        <div class="img-user">
+                            <img src="../../assets/images/usuario.png" alt="">
+                        </div>
+                        <div class="text-user">
+                            <span class="title1">Obeb Hipolito - Orizaba</span>
+                            <span class="title2" >Especilidad Nutricion</span>
+                        </div>
+                        <div class="heart-reaccion">
+                            <i class="fa fa-heart" [ngClass]="{ 'filled': isChecked }" (click)="toggleCheckbox()"></i>
+                            <span>{{ likesCount }}</span>
+                        </div>
+                    </div>
+                    <div class="body-info">
+                        <div class="img-body">
+                            <img src="../../assets/images/publicaciones/ensalada.png" alt="">
+                        </div>
+                        <div class="texto-body">
+                            <span>10/08/23</span>
+                        <h6>¡Tips para tener un dia lleno de energia!</h6>
+                        <ul>
+                            <li>Dormir lo suficiente: Dormir entre 7 y 9 horas por noche es esencial para repecuperar la energia fisica y mental</li>
+                            <li>Desayunar bien: Un desayuno equilibrado, rico en proteinas, fibra y carbohidratos saludables, te proporcionara la energia necesaria para comenzar el dia. </li>
+                            <li>Hidratacion: Mantenerse hidratado es clave para tener energia durante todo el dia. Se recomienda beber al menos 8 vasos de agua al dia.</li>
+                        </ul>
+                        </div>
+                    </div>
+                    <div class="btn-funciones">
+                        <button class="compartir">
+                            <a>Compartir</a>
+                            <img src="../../assets/images/publicaciones/flecha-abajo.png" alt="">
+                        </button>
+                        <button class="comentarios" (click)="toggleComentarios()">
+                            <a>Comentarios</a>
+                            <img src="../../assets/images/publicaciones/flecha-abajo.png" alt="">
+                        </button>
+                        <div class="comentarios" *ngIf="comentariosVisible">
+                            <input [(ngModel)]="nuevoComentario" placeholder="Escribe un comentario">
+                            <button (click)="agregarComentario(nuevoComentario)">Agregar Comentario</button>
+                            <div *ngFor="let comentario of listaComentarios">
+                                {{ comentario }}
+                            </div>
+                        </div>
+                        <button class="seguir">
+                            <a>Seguir</a>
+                        </button>
+                        <button class="guardar">
+                            <i class="fa fa-bookmark" [ngClass]="{ 'filled': isCheckedsave }" (click)="toggleCheckboxsave()"></i>
+                            <a>Guardar</a>
+                        </button>
+                    </div>
+                </div>
+                <div class="pub-info">
+                    <div class="header-info">
+                        <div class="img-user">
+                            <img src="../../assets/images/usuario.png" alt="">
+                        </div>
+                        <div class="text-user">
+                            <span class="title1">Obeb Hipolito - Orizaba</span>
+                            <span class="title2" >Especilidad Nutricion</span>
+                        </div>
+                        <div class="heart-reaccion">
+                            <i class="fa fa-heart" [ngClass]="{ 'filled': isChecked }" (click)="toggleCheckbox()"></i>
+                            <span>{{ likesCount }}</span>
+                        </div>
+                    </div>
+                    <div class="body-info">
+                        <div class="img-body">
+                            <img src="../../assets/images/publicaciones/ensalada.png" alt="">
+                        </div>
+                        <div class="texto-body">
+                            <span>10/08/23</span>
+                        <h6>¡Tips para tener un dia lleno de energia!</h6>
+                        <ul>
+                            <li>Dormir lo suficiente: Dormir entre 7 y 9 horas por noche es esencial para repecuperar la energia fisica y mental</li>
+                            <li>Desayunar bien: Un desayuno equilibrado, rico en proteinas, fibra y carbohidratos saludables, te proporcionara la energia necesaria para comenzar el dia. </li>
+                            <li>Hidratacion: Mantenerse hidratado es clave para tener energia durante todo el dia. Se recomienda beber al menos 8 vasos de agua al dia.</li>
+                        </ul>
+                        </div>
+                    </div>
+                    <div class="btn-funciones">
+                        <button class="compartir">
+                            <a>Compartir</a>
+                            <img src="../../assets/images/publicaciones/flecha-abajo.png" alt="">
+                        </button>
+                        <button class="comentarios" (click)="toggleComentarios()">
+                            <a>Comentarios</a>
+                            <img src="../../assets/images/publicaciones/flecha-abajo.png" alt="">
+                        </button>
+                        <div class="comentarios" *ngIf="comentariosVisible">
+                            <input [(ngModel)]="nuevoComentario" placeholder="Escribe un comentario">
+                            <button (click)="agregarComentario(nuevoComentario)">Agregar Comentario</button>
+                            <div *ngFor="let comentario of listaComentarios">
+                                {{ comentario }}
+                            </div>
+                        </div>
+                        <button class="seguir">
+                            <a>Seguir</a>
+                        </button>
+                        <button class="guardar">
+                            <i class="fa fa-bookmark" [ngClass]="{ 'filled': isCheckedsave }" (click)="toggleCheckboxsave()"></i>
+                            <a>Guardar</a>
+                        </button>
+                    </div>
                 </div>
             </div>
             <div class="fijo-menu">
                 <div class="btn-nutriologo">
-                    <div class="nutriologos-disponibles">
-                        <span>Ve los nutriologos disponibles en la zona                    </span>
-                    </div>
-                    <div class="container-chatbot">
-                        <span>Chatbot</span>
-                    </div>
+                    <button class="nutriologos-disponibles">
+                        <a>Ve los nutriologos disponibles en la zona</a>
+                    </button>
+                    <button class="container-chatbot">
+                        <a>Chatbot</a>
+                    </button>
                 </div>
                 <div class="datos">
                     <div class="sabias-que">
                         <h5>¡Sabias que!</h5>
-                        <p>100</p>
-                        <img src="" alt="">
+                        <p>100 gr de alitas de pollo es igual a 300 kg de pechuga de pollo asada que tiene 75 k cal</p>
+                        <img src="../../assets/images/publicaciones/alitas.png" alt="">
                     </div>
                 </div>
             </div>

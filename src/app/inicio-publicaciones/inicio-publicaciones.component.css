@@ -1,3 +1,6 @@
+@import "~font-awesome/css/font-awesome.css";
+
+
 * {
     margin: 0;
     padding: 0;
@@ -12,21 +15,26 @@ html {
 
 body {
     padding: 0;
-    margin: 0px -8px;
+    margin: -8px;
 }
 
 
 .secciones {
     width: 100%;
-    height: auto;
-    margin: 65px 0 0 0;
-    padding: 0px 0px 30px 0px;
+    height: 100%;
     background-color: #081B29;
     display: flex;
 }
 
+.publicaciones-inicio {
+    flex: 1;
+    overflow-y: scroll;
+    max-height: 85vh;
+}
+
 .publicaciones-inicio h1 {
-    padding: 30px;
+    margin-top: 10px;
+    padding: 30px 20px;
     color: #FFF;
     text-align: center;
     font-size: 30px;
@@ -35,18 +43,107 @@ body {
     line-height: normal;
 }
 
-.publicaciones-inicio .pub-info{
-    display: flex;
-    margin-left: 30px;
-    width:90%;
-    height: 261px;
+.publicaciones-inicio .pub-info {
+    width: 95%;
+    height: auto;
     background-color: #EEE;
     border-radius: 15px;
+    padding-bottom: 20px;
+    margin: 0px 0px 40px 30px;
+}
+
+.pub-info .header-info {
+    position: relative;
+    display: flex;
+}
+
+.heart-reaccion {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.heart-reaccion span {
+    margin-left: 5px;
+}
+
+.pub-info .header-info .img-user img {
+    margin: 10px;
+    width: 45px;
+    height: auto;
+}
+
+.header-info .text-user {
+    flex-direction: column;
+    display: flex;
+    margin-top: 1%;
+    text-align: right;
+}
+
+.pub-info .header-info .text-user .title1 {
+    color: #A85A00;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.publicaciones-inicio .pub-info .text-user .title2 {
+    color: #A85A00;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.pub-info .body-info {
+    display: flex;
+    align-items: center;
+    margin: 5px 40px 10px 40px;
+}
+
+.pub-info .body-info .img-body {
+    flex: 0 0 auto;
+    margin-right: 10px;
+}
+
+.pub-info .body-info .img-body img {
+    max-width: 100%;
+    width: 271px;
+    height: 200px;
+}
+
+.pub-info .body-info .texto-body {
+    padding: 30px;
+    flex: 1;
+}
+
+.texto-body span {
+    display: flex;
+    justify-content: right;
+}
+
+.texto-body h6 {
+    font-size: 20px;
+    padding: 0px 0px 10px;
+}
+
+.texto-body ul {
+    font-size: 14px;
 }
 
 /*Diseño de menu fijo*/
 
-.fijo-menu .nutriologos-disponibles{
+.fijo-menu {
+    margin: 0px 3%;
+    position: sticky;
+    top: 0;
+}
+
+.fijo-menu .nutriologos-disponibles {
     margin-top: 38%;
     width: 268px;
     height: 70px;
@@ -54,31 +151,172 @@ body {
     border-radius: 10px;
     background-color: #FF9B9B;
     align-items: center;
-    padding: 10px;
+    padding: 6px 0px;
     margin-bottom: 20px;
+    border: none;
+    cursor: pointer;
 }
 
-.fijo-menu  .btn-nutriologo .nutriologos-disponibles span{
+.fijo-menu .btn-nutriologo .nutriologos-disponibles a {
     display: flex;
+    justify-content: center;
+    color: #383232;
     text-align: center;
+    font-size: 20px;
+    font-weight: 500;
 }
 
-.fijo-menu .container-chatbot{
+.fijo-menu .container-chatbot {
     width: 159px;
     height: 57px;
     flex-shrink: 0;
     border-radius: 10px;
     background-color: #FF9B9B;
-    padding: 10px;
-}
-.fijo-menu .btn-nutriologo .container-chatbot span{
-    text-align: center;
-    display: flex;
-    justify-content: center;
+    padding: 10px 0px;
+    border: none;
+    cursor: pointer;
 }
 
-.btn-nutriologo{
+.fijo-menu .btn-nutriologo .container-chatbot a {
+    display: flex;
+    justify-content: center;
+    color: #383232;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.fijo-menu .datos .sabias-que {
+    margin-top: 20px;
+    width: 268px;
+    height: 258px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background-color: #FBCCA7;
+    margin-bottom: 23px;
+    text-align: center;
+}
+
+.datos .sabias-que h5 {
+    color: #081B29;
+    text-align: center;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.datos .sabias-que p {
+    padding: 10px;
+    color: #000;
+    text-align: center;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.datos .sabias-que img {
+    width: 45%;
+    border-radius: 10px;
+}
+
+.btn-nutriologo {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
+.fa-heart {
+    font-size: 30px;
+    color: #ccc;
+    cursor: pointer;
+}
+
+.fa-bookmark{
+    font-size: 20px;
+    cursor: pointer;
+    color: #fff;
+    margin-right: 10px;
+}
+
+.fa-bookmark.filled{
+    color: #A85A00;
+}
+
+.fa-heart.filled {
+    color: red;
+}
+
+.pub-info .btn-funciones {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    justify-content: center;
+}
+
+.btn-funciones .compartir {
+    border-radius: 10px;
+    background-color: #F2A264;
+    width: 144px;
+    height: 39px;
+    flex-shrink: 0;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    text-align: center;
+    align-items: center;
+    display: flex;
+}
+
+.btn-funciones a{
+    margin-right: 5px;
+}
+
+.btn-funciones img{
+    width: 20px;
+    height: 20x;
+}
+
+.btn-funciones a{
+    color: #000;
+    text-align: center;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.btn-funciones .comentarios {
+    border-radius: 10px;
+    background: #F7D3A7;
+    width: 159px;
+    height: 39px;
+    flex-shrink: 0;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    text-align: center;
+    align-items: center;
+    display: flex;
+}
+
+.btn-funciones .seguir {
+    width: 130px;
+    height: 39px;
+    flex-shrink: 0;
+    background-color: #C5BC30;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.btn-funciones .guardar {
+    border-radius: 10px;
+    border: none;
+    flex-shrink: 0;
+    width: 130px;
+    height: 39px;
+    background-color: #FF9B9B;
+}
+

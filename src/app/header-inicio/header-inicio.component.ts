@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./header-inicio.component.css']
 })
 export class HeaderInicioComponent {
-
+  userIsLoggedIn: boolean = false;
 }

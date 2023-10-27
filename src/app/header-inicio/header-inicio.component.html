@@ -24,10 +24,15 @@
     
             <ul class="all-links">
               <li><a routerLink="/">Inicio</a></li>
-              <li><a routerLink="/catalogo-landing">Nutriologos</a></li>
+              <li><a routerLink="/nutriologos">Nutriologos</a></li>
               <li><a routerLink="/servicios-landing">Chatbot</a></li>
-              <li><a routerLink="/acerca-landing">Nosotros</a></li>
-              <li><a routerLink="/iniciar-sesion"><button>Iniciar sesion</button></a></li>
+              <li><a routerLink="/nosotros">Nosotros</a></li>
+              <ng-container *ngIf="userIsLoggedIn; else loginButton">
+                <img src="../../assets/images/usuario.png" alt="">
+              </ng-container>
+              <ng-template #loginButton>
+                <li><a routerLink="/iniciar-sesion"><button>Iniciar sesión</button></a></li>
+              </ng-template>
             </ul>
             
           </nav>

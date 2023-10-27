@@ -1,13 +1,32 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { HeaderInicioComponent } from './header-inicio/header-inicio.component';
 import { InicioPublicacionesComponent } from './inicio-publicaciones/inicio-publicaciones.component';
+import { IniciarSesionComponent } from './iniciar-sesion/iniciar-sesion.component';
+import { RegistroUsuarioComponent } from './registro-usuario/registro-usuario.component';
+import { NosotrosComponent } from './nosotros/nosotros.component';
+import { NutriologosComponent } from './nutriologos/nutriologos.component';
 
 const routes: Routes = [
   {
     path:'',
     component: InicioPublicacionesComponent
+  },
+  {
+    path:'iniciar-sesion',
+    component: IniciarSesionComponent
+  },
+  {
+    path:'registro',
+    component: RegistroUsuarioComponent
+  },
+  {
+    path:'nosotros',
+    component: NosotrosComponent
+  },
+  {
+    path:'nutriologos',
+    component: NutriologosComponent
   }
 ];
 
