@@ -6,24 +6,59 @@ import { Component } from '@angular/core';
   styleUrls: ['./inicio-publicaciones.component.css']
 })
 export class InicioPublicacionesComponent {
-  isChecked: boolean = false;
-  isCheckedsave: boolean= false ;
-  likesCount: number = 4;
+  listaPubInfo = [
+    {
+      nombre: 'Obeb Hipolito - Orizaba',
+      especialidad: 'Especialidad Nutricion',
+      fecha: '10/08/23',
+      titulo: '¡Tips para tener un dia lleno de energia!',
+      contenido: [
+        'Dormir lo suficiente: Dormir entre 7 y 9 horas por noche es esencial para recuperar la energía física y mental',
+        'Desayunar bien: Un desayuno equilibrado, rico en proteínas, fibra y carbohidratos saludables, te proporcionará la energía necesaria para comenzar el día.',
+        'Hidratación: Mantenerse hidratado es clave para tener energía durante todo el día. Se recomienda beber al menos 8 vasos de agua al día.'
+      ],
 
-  toggleCheckbox() {
-    this.isChecked = !this.isChecked;
+      isChecked: false,
+      likesCount: 0,
+      isCheckedSave: false 
+    },
+    {
+      nombre: 'Obeb Hipolito - Orizaba',
+      especialidad: 'Especialidad Nutricion',
+      fecha: '10/08/23',
+      titulo: '¡Tips para tener un dia lleno de energia!',
+      contenido: [
+        'Dormir lo suficiente: Dormir entre 7 y 9 horas por noche es esencial para recuperar la energía física y mental',
+        'Desayunar bien: Un desayuno equilibrado, rico en proteínas, fibra y carbohidratos saludables, te proporcionará la energía necesaria para comenzar el día.',
+        'Hidratación: Mantenerse hidratado es clave para tener energía durante todo el día. Se recomienda beber al menos 8 vasos de agua al día.'
+      ],
 
-    if (this.isChecked) {
-      this.likesCount++;
-    } else {
-      this.likesCount--;
-    }
+      isChecked: false,
+      likesCount: 0,
+      isCheckedSave: false 
+    },
+  ];
+  
+  toggleCheckbox(pubInfo: any) {
+        // Suma los 'Me gusta' de todas las publicaciones
+    let totalLikes = 0;
+    this.listaPubInfo.forEach((pub) => {
+      totalLikes += pub.likesCount;
+    });
+
+    // Actualiza 'Me gusta' y 'isChecked' para la publicación actual
+    pubInfo.isChecked = !pubInfo.isChecked;
+    pubInfo.likesCount += pubInfo.isChecked ? 1 : -1;
+
+    // Actualiza 'Me gusta' para todas las publicaciones
+    this.listaPubInfo.forEach((pub) => {
+      pub.likesCount += pubInfo.isChecked ? 1 : -1;
+    });
   }
 
-  toggleCheckboxsave() {
-    this.isCheckedsave = !this.isCheckedsave;
+  toggleCheckboxSave(pubInfo: any) {
+    pubInfo.isCheckedSave = !pubInfo.isCheckedSave;
   }
-
   
   comentariosVisible = false;
   listaComentarios: string[] = [];
