@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<header>
+    <app-header-inicio></app-header-inicio>
+</header>
+
+<body>
+    <div class="secciones">
+        <div class="publicaciones-guardadas">
+            <div class="datos">
+                <div class="user">
+                    <img src="../../assets/images/usuario.png" alt="">
+                    <div class="nombre">
+                        <h2>{{ nombreUsuario }}</h2>
+                        <div class="estrellas">
+                            <i *ngFor="let _ of [1, 2, 3, 4]" class="fas fa-star"></i>
+                            <i class="far fa-star estrella-outline"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="informacion-adicional">
+                    <div class="informacion">
+                        <div class="campo">
+                            <label>Cédula:</label>
+                            <span *ngIf="!editando">{{ cedula }}</span>
+                            <input *ngIf="editando" [(ngModel)]="cedula" placeholder="Ingrese su cédula">
+                        </div>
+                        <div class="campo">
+                            <label>Dirección:</label>
+                            <span *ngIf="!editando">{{ direccion }}</span>
+                            <input *ngIf="editando" [(ngModel)]="direccion" placeholder="Ingrese su dirección">
+                        </div>
+                        <div class="campo sobre">
+                            <label>Sobre mí:</label>
+                            <span class="sobre-mi" *ngIf="!editando">{{ sobreMi }}</span>
+                            <textarea *ngIf="editando" [(ngModel)]="sobreMi"
+                                placeholder="Ingrese información sobre usted"></textarea>
+                        </div>
+                    </div>
+                    <div class="editar">
+                        <i class="fas fa-pencil-alt editar-icon" (click)="toggleEdicion()"></i>
+                    </div>
+                </div>
+                <div class="citas">
+                    <label for="">Agenda tu cita</label>
+                    <div class="redes">
+                        <img class="facebook-icon" src="../../assets/images/facebook.png" alt="">
+                        <a>Nutri-soft</a>
+                    </div>
+                    <div class="redes">
+                        <i class="fab fa-whatsapp whatsapp-icon"></i>
+                        <a class="number">222-222-222</a>
+                    </div>
+                </div>
+            </div>
+            <div class="comentarios">
+                <h3>Opiniones recientes </h3>
+                <div class="opiniones-container" [class.expandido]="verMasClicked">
+                    <ng-container *ngFor="let opinion of opiniones">
+                        <div class="perfil" *ngIf="verMasClicked || opiniones.indexOf(opinion) < 3">
+                            <div class="texto-opinion">
+                                <p>{{ opinion.texto }}</p>
+                                <div class="info">
+                                    <img src="../../assets/images/user-comentarios.png" alt="">
+                                    <div class="nombre-comentarios">
+                                        <div class="estrellas">
+                                            <i *ngFor="let _ of [1, 2, 3, 4]" class="fas fa-star"></i>
+                                            <i class="far fa-star estrella-outline"></i>
+                                        </div>
+                                        <h5>{{ opinion.nombre }}</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+                    <div class="btn-ver">
+                        <button class="ver-mas-btn" *ngIf="opiniones.length > 4" (click)="toggleVerMas()">
+                            {{ verMasClicked ? 'Ver menos' : 'Ver más' }}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

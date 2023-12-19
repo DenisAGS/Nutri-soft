@@ -10,6 +10,8 @@ import { RegistroUsuarioComponent } from './registro-usuario/registro-usuario.co
 import { HeaderInicioComponent } from './header-inicio/header-inicio.component';
 import { NutriologosComponent } from './nutriologos/nutriologos.component';
 import { NosotrosComponent } from './nosotros/nosotros.component';
+import { PerfilProfesionalComponent } from './perfil-profesional/perfil-profesional.component';
+import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { NosotrosComponent } from './nosotros/nosotros.component';
     RegistroUsuarioComponent,
     HeaderInicioComponent,
     NutriologosComponent,
-    NosotrosComponent
+    NosotrosComponent,
+    PerfilProfesionalComponent,
+    PerfilUsuarioComponent
   ],
   imports: [
     BrowserModule,

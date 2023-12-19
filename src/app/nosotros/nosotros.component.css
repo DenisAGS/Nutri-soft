@@ -13,16 +13,18 @@ html {
     scroll-behavior: smooth;
 }
 
-body {
-    padding: 0;
+header{
     margin: -8px;
 }
 
-.secciones {
+body {
+    padding: 0;
+    margin: 8px -8px -8px;
     width: 100%;
     height: 100%;
     background-color: #081B29;
 }
+
 
 .secciones h1 {
     padding: 14px 0px 0px;

@@ -6,6 +6,8 @@ import { IniciarSesionComponent } from './iniciar-sesion/iniciar-sesion.componen
 import { RegistroUsuarioComponent } from './registro-usuario/registro-usuario.component';
 import { NosotrosComponent } from './nosotros/nosotros.component';
 import { NutriologosComponent } from './nutriologos/nutriologos.component';
+import { PerfilProfesionalComponent } from './perfil-profesional/perfil-profesional.component';
+import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
 
 const routes: Routes = [
   {
@@ -27,6 +29,14 @@ const routes: Routes = [
   {
     path:'nutriologos',
     component: NutriologosComponent
+  },
+  {
+    path:'perfil-profesional',
+    component: PerfilProfesionalComponent
+  },
+  {
+    path:'perfil-usuario',
+    component: PerfilUsuarioComponent
   }
 ];
 

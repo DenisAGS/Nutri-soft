@@ -34,32 +34,29 @@ export class InicioPublicacionesComponent {
       ],
 
       isChecked: false,
-      likesCount: 0,
+      likesCount: 2,
       isCheckedSave: false 
     },
   ];
-  
-  toggleCheckbox(pubInfo: any) {
-        // Suma los 'Me gusta' de todas las publicaciones
-    let totalLikes = 0;
-    this.listaPubInfo.forEach((pub) => {
-      totalLikes += pub.likesCount;
-    });
 
-    // Actualiza 'Me gusta' y 'isChecked' para la publicación actual
+  totalLikes = 0;
+
+
+  toggleCheckbox(pubInfo: any) {
     pubInfo.isChecked = !pubInfo.isChecked;
     pubInfo.likesCount += pubInfo.isChecked ? 1 : -1;
 
-    // Actualiza 'Me gusta' para todas las publicaciones
-    this.listaPubInfo.forEach((pub) => {
-      pub.likesCount += pubInfo.isChecked ? 1 : -1;
-    });
+    this.actualizarTotalLikes();
   }
 
   toggleCheckboxSave(pubInfo: any) {
     pubInfo.isCheckedSave = !pubInfo.isCheckedSave;
   }
   
+  private actualizarTotalLikes() {
+    this.totalLikes = this.listaPubInfo.reduce((total, pubInfo) => total + pubInfo.likesCount, 0);
+  }
+
   comentariosVisible = false;
   listaComentarios: string[] = [];
   nuevoComentario: string = '';

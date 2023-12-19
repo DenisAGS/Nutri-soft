@@ -1,0 +1,291 @@
+@import "~font-awesome/css/font-awesome.css";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+header{
+    margin: -8px;
+}
+
+body {
+    padding: 0;
+    margin: 8px -8px -8px;
+    width: auto;
+    height: 100%;
+    background-color: #081B29;
+}
+
+.secciones {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.publicaciones-guardadas{
+    border: 4px solid orange;
+    border-radius: 20px;
+    padding: 10px 20px;
+    width: 90%;
+    height: 100%;
+    align-items: center;
+    display: flex;
+    margin: 26px;
+}
+
+.datos,
+.comentarios {
+    flex: 1;
+    padding: 10px;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+  }
+
+.user img{
+  width: 10%;
+  height: auto;
+  margin-left: 10px;
+  margin-right: 10px;
+}  
+
+  .nombre .estrellas i {
+    font-size: 20px;
+    margin-right: 10px;
+  }
+
+  .estrellas {
+    color: orange;
+  }
+
+  .estrella-outline {
+    color: orange;
+    transform: scale(1.2);
+  }
+
+  .user .icono{
+    color: white;
+  }
+
+  .nombre h2{
+    color: #F80;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: normal;
+  }
+
+  /*informacion adicional*/
+
+  .informacion-adicional{
+    margin-top: 20px;
+    display: flex;
+  }
+
+  .citas, .informacion-adicional .campo{
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin: 20px;
+  }
+
+  .publicaciones-guardadas label{
+    color: #DCAAAA;
+  }
+
+  .campo span{
+    color: white;
+    margin-left: 10px;
+  }
+
+  .campo input, textarea{
+    margin-left: 10px;
+    background: white;
+    border: 2px solid orange;
+    border-radius: 5px;
+    padding: 2px 10px;
+    font-size: 20px;
+  }
+
+  .campo .sobre-mi{
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+  }
+
+  .informacion-adicional .editar-icon {
+    position: absolute;
+    top: 36%;
+    left: 45%;
+    transform: translateY(-30%);
+    cursor: pointer;
+    color: white;
+    cursor: pointer;
+  }
+
+  .informacion-adicional .sobre{
+    display: flex;
+    flex-direction: column; 
+  }
+
+  .informacion-adicional .sobre span{
+    margin-left: 0px;
+    margin-top: 10px;
+  }
+
+  .informacion-adicional .sobre textarea{
+    margin-left: 0px;
+    margin-top: 10px;
+  }
+
+  /*Redes sociales*/
+  .datos .citas{
+    margin-top: -5px;
+  }
+  
+  .facebook-icon,
+  .whatsapp-icon {
+    vertical-align: middle; /* Alinea verticalmente el icono y el texto */
+    margin-right: 10px; 
+  }
+
+  .facebook-icon {
+    width: 30px;
+    color: #3b5998;
+  }
+
+  .whatsapp-icon {
+    background-color: #25D366;
+    border-radius: 50%;
+    padding: 5px;
+    color: #FFFFFF;
+  }
+
+ .citas .redes {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .redes a{
+    color: white;
+    text-decoration: none;
+  }
+
+  .number{
+    margin-top: 10px;
+  }
+
+  .redes i {
+    margin-top: 10px;
+    margin-right: 10px;
+  }
+
+  /*Estilos para los comentarios*/
+
+  .publicaciones-guardadas .comentarios{
+    border-radius: 10px;
+    background-color: #FCBDBD;
+    width: 373px;
+    height: auto;
+    flex-shrink: 0;
+  }
+
+  .publicaciones-guardadas .comentarios h3{
+    color: #081B29;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-align: center;
+  }
+
+  .perfil .info{
+    display: flex;    
+    align-items: center;
+  }
+
+  .perfil .info img{
+    width: 6%;
+  }
+
+  .nombre-comentarios{
+    margin-left: 6px;
+  }
+
+  .nombre-comentarios h5{
+    color: #081B29; 
+    font-size: 14px;
+    font-weight: 500;
+    line-height: normal;
+  }
+  
+  .nombre-comentarios .estrellas i {
+    font-size: 15px;
+    margin-right: 5px;
+  }
+
+  .opiniones-container {
+    display: flex;
+    flex-direction: column;
+    max-height: 400px; 
+    overflow-y: auto;
+    margin-top: 10px;
+  }
+
+  .opiniones-container.expandido {
+    max-height: none; 
+  }
+
+  .btn-ver{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .ver-mas-btn {
+    margin: 10px 0px;
+    cursor: pointer;
+    border-radius: 6px; 
+    border: none;
+    background: #676767;
+    color: white;
+    width: 100px;
+    height: 30px;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400; 
+    justify-content: center;
+    align-items: center;
+    
+  }
+
+  .perfil .texto-opinion{
+    background-color: white;
+    border-radius: 7px; 
+    padding: 10px;
+    flex-shrink: 0; 
+    height: auto;
+    margin-bottom: 10px;
+  }
+
+  .perfil .texto-opinion p{
+    color: #383232;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: normal;
+  }

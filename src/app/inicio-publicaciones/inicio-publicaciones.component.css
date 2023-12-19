@@ -13,15 +13,20 @@ html {
     scroll-behavior: smooth;
 }
 
-body {
-    padding: 0;
+
+header{
     margin: -8px;
 }
 
-.secciones {
+body {
+    padding: 0;
+    margin: 8px -8px -8px;
     width: 100%;
     height: 100%;
     background-color: #081B29;
+}
+
+.secciones {
     display: flex;
 }
 
@@ -314,6 +319,7 @@ body {
     border: none;
     border-radius: 10px;
     cursor: pointer;
+    display: none;
 }
 
 .btn-funciones .guardar {
@@ -323,5 +329,6 @@ body {
     width: 130px;
     height: 39px;
     background-color: #FF9B9B;
+    display: none;
 }
 
