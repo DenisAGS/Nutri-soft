@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css" />
+    <title>Nutri-Soft</title>
+</head>
+
+<body>
+    <div class="wrapper" [style.height]="wrapperHeight">
+        <form action="" class="form" (ngSubmit)="submitRegistro()">
+            <h1 class="title">Registro</h1>
+            <div class="inp">
+                <input type="text" placeholder="Usuario">
+                <i class="fa-solid fa-user"></i>
+            </div>
+            <div class="inp">
+                <input type="email" name="" id="" placeholder="Correo electronico">
+                <i class="fa fa-envelope"></i>
+            </div>
+            <div class="inp">
+                <input type="password" name="" id="" placeholder="Contraseña">
+                <i class="fa fa-eye"></i>
+            </div>
+            <div class="nutriologo-check">
+                <input type="checkbox" name="soyNutriologo" id="soyNutriologo"  [(ngModel)]="soyNutriologo">
+                <label for="soyNutriologo">Soy Nutriólogo</label>
+            </div>
+            <!-- Campos adicionales -->
+            <div class="inp" *ngIf="soyNutriologo">
+                <input type="text" placeholder="Cedula">
+                <i class="fa fa-user-pen"></i>
+            </div>
+            <div class="inp" *ngIf="soyNutriologo">
+                <input type="text" placeholder="Direccion">
+                <i class="fa fa-location-dot"></i>
+            </div>
+            <div class="inp" *ngIf="soyNutriologo">
+                <input type="text" placeholder="Sobre mi">
+                <i class="fa fa-id-card-clip"></i>
+            </div>
+
+            <button class="submit" routerLink="/">Registrarse</button>
+            <p class="footer">¿Tienes una cuenta? <a routerLink="/iniciar-sesion" class="link">Por favor, inicia
+                    sesion</a></p>
+        </form>
+        <div></div>
+        <div class="banner">
+            <h1 class="wel_text">Bienvenido</h1>
+            <p class="para">Comienza tu viaje hacia un <br> estilo de vida más saludable <br />@Nutrisoft </p>
+        </div>
+    </div>
+</body>
+
+</html>
