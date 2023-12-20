@@ -28,36 +28,35 @@
                     <div class="informacion">
                         <div class="campo">
                             <label>Cédula:</label>
-                            <span *ngIf="!editando">{{ cedula }}</span>
-                            <input *ngIf="editando" [(ngModel)]="cedula" placeholder="Ingrese su cédula">
+                            <span>{{ cedula }}</span>
                         </div>
                         <div class="campo">
                             <label>Dirección:</label>
-                            <span *ngIf="!editando">{{ direccion }}</span>
-                            <input *ngIf="editando" [(ngModel)]="direccion" placeholder="Ingrese su dirección">
+                            <span>{{ direccion }}</span>
                         </div>
                         <div class="campo sobre">
                             <label>Sobre mí:</label>
-                            <span class="sobre-mi" *ngIf="!editando">{{ sobreMi }}</span>
-                            <textarea *ngIf="editando" [(ngModel)]="sobreMi" placeholder="Ingrese información sobre usted" maxlength="50"></textarea>
-                            <div *ngIf="editando" class="suma">
-                                Caracteres restantes: {{ 50 - sobreMi.length }}
-                            </div>
+                            <span class="sobre-mi">{{ sobreMi }}</span>
                         </div>
                     </div>
-                    <div class="editar">
-                        <i class="fas fa-pencil-alt editar-icon" (click)="toggleEdicion()"></i>
-                    </div>
+
                 </div>
-                <div class="citas">
-                    <label for="">Agenda tu cita</label>
-                    <div class="redes">
-                        <img class="facebook-icon" src="../../assets/images/facebook.png" alt="">
-                        <a>Nutri-soft</a>
+                <div class="redes-generales">
+                    <div class="citas">
+                        <label for="">Agenda tu cita</label>
+                        <div class="redes">
+                            <img class="facebook-icon" src="../../assets/images/facebook.png" alt="">
+                            <a>Nutri-soft</a>
+                        </div>
+                        <div class="redes">
+                            <i class="fab fa-whatsapp whatsapp-icon"></i>
+                            <a class="number">222-222-222</a>
+                        </div>
                     </div>
-                    <div class="redes">
-                        <i class="fab fa-whatsapp whatsapp-icon"></i>
-                        <a class="number">222-222-222</a>
+                    <div class="seguir">
+                        <button (click)="toggleSeguir()" [ngClass]="{'siguiendo': siguiendo}">
+                          {{ siguiendo ? 'Siguiendo' : 'Seguir' }}
+                        </button>
                     </div>
                 </div>
             </div>
@@ -81,11 +80,26 @@
                             </div>
                         </div>
                     </ng-container>
-                    <div class="btn-ver">
+                    <div class="nuevo-comentario" *ngIf="editando">
+                        <textarea class="input-comentario" placeholder="Ingrese su comentario" [(ngModel)]="nuevoComentario.texto"></textarea>
+                        <div class="estrellas">
+                            <i *ngFor="let _ of [1, 2, 3, 4, 5]"
+                               class="fas"
+                               [ngClass]="{'fa-star': _ <= estrellasSeleccionadas, 'fa-star-o': _ > estrellasSeleccionadas}"
+                               (click)="setRating(_)"
+                               (mouseover)="onStartHover(_)"
+                               (mouseleave)="onStartLeave()"></i>
+                        </div>
+                        <button class="aceptar-comentario" (click)="agregarComentario()">Aceptar</button>
+                        <button class="cancelar-comentario" *ngIf="editando" (click)="toggleEditando()">Cancelar</button>
+
+                    </div>                    <div class="btn-acciones">
                         <button class="ver-mas-btn" *ngIf="opiniones.length > 4" (click)="toggleVerMas()">
                             {{ verMasClicked ? 'Ver menos' : 'Ver más' }}
                         </button>
+                        <button class="agregar-commet" *ngIf="!editando" (click)="toggleEditando()">Agregar opinion</button>
                     </div>
+
                 </div>
             </div>
         </div>

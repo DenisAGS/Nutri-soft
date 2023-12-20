@@ -12,6 +12,7 @@ import { NutriologosComponent } from './nutriologos/nutriologos.component';
 import { NosotrosComponent } from './nosotros/nosotros.component';
 import { PerfilProfesionalComponent } from './perfil-profesional/perfil-profesional.component';
 import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
+import { VistaUsuarioGeneralComponent } from './vista-usuario-general/vista-usuario-general.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.componen
     NutriologosComponent,
     NosotrosComponent,
     PerfilProfesionalComponent,
-    PerfilUsuarioComponent
+    PerfilUsuarioComponent,
+    VistaUsuarioGeneralComponent
   ],
   imports: [
     BrowserModule,

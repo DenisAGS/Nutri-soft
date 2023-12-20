@@ -125,16 +125,6 @@ body {
     width: 100%;
   }
 
-  .informacion-adicional .editar-icon {
-    position: absolute;
-    top: 36%;
-    left: 45%;
-    transform: translateY(-30%);
-    cursor: pointer;
-    color: white;
-    cursor: pointer;
-  }
-
   .informacion-adicional .sobre{
     display: flex;
     flex-direction: column; 
@@ -199,6 +189,35 @@ body {
     margin-right: 10px;
   }
 
+  .redes-generales{
+    display: flex;
+  }
+
+  .citas, .seguir{
+    flex: 1;
+  }
+
+  .seguir{
+    margin-right: 20px;
+    text-align: right;
+  }
+
+  .seguir button{
+    border-radius: 6px;
+    background: #69ED48;
+    width: 130px;
+    height: 50px;
+    flex-shrink: 0;
+    color: #081B29;
+    font-size: 22px; 
+    border: none;
+    cursor: pointer;
+  }
+
+  .redes-generales .seguir .siguiendo{
+    background-color: rgb(49, 197, 255);
+  }
+
   /*Estilos para los comentarios*/
 
   .publicaciones-guardadas .comentarios{
@@ -255,11 +274,12 @@ body {
     max-height: none; 
   }
 
-  .btn-ver{
+  .btn-acciones{
     display: flex;
     align-items: center;
     text-align: center;
     justify-content: center;
+    flex-direction: column;
   }
 
   .ver-mas-btn {
@@ -277,6 +297,56 @@ body {
     justify-content: center;
     align-items: center;
     
+  }
+
+  .agregar-commet{
+    border-radius: 6px;
+    background-color: #1E1E1E;
+    width: 160px;
+    height: 30px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: 400; 
+  }
+
+  .aceptar-comentario, .cancelar-comentario{
+    margin: 10px 10px;
+    cursor: pointer;
+    border-radius: 6px; 
+    border: none;
+    color: white;
+    width: 100px;
+    height: 30px;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400; 
+    align-items: center;
+  }
+
+  .aceptar-comentario{
+    background-color: #25D366;
+  }
+
+  .cancelar-comentario{
+    background-color: #c51616;
+  }
+
+  .input-comentario{
+    border: none;
+    width: 98%;
+    font-size: 15px;
+  }
+
+  .nuevo-comentario{
+    margin-left: -7px;
+  }
+
+  .nuevo-comentario .estrellas{
+    margin-left: 10px;  }
+
+  .nuevo-comentario .estrellas i{
+    margin-right: 6px;
   }
 
   .perfil .texto-opinion{
@@ -301,9 +371,13 @@ body {
       flex-direction: column;
     }
 
-    .informacion-adicional .editar-icon {
-      top: 36%;
-      left: 55%;
+    .publicaciones-guardadas .comentarios{
+        width: 573px;
+        height: auto;
+      }
+
+    .datos {
+        width: 573px;
     }
   }
   

@@ -8,6 +8,7 @@ import { NosotrosComponent } from './nosotros/nosotros.component';
 import { NutriologosComponent } from './nutriologos/nutriologos.component';
 import { PerfilProfesionalComponent } from './perfil-profesional/perfil-profesional.component';
 import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
+import { VistaUsuarioGeneralComponent } from './vista-usuario-general/vista-usuario-general.component';
 
 const routes: Routes = [
   {
@@ -37,6 +38,10 @@ const routes: Routes = [
   {
     path:'perfil-usuario',
     component: PerfilUsuarioComponent
+  },
+  {
+    path:'vista-usuarios-general',
+    component: VistaUsuarioGeneralComponent
   }
 ];
 
