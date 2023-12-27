@@ -13,6 +13,7 @@ import { NosotrosComponent } from './nosotros/nosotros.component';
 import { PerfilProfesionalComponent } from './perfil-profesional/perfil-profesional.component';
 import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
 import { VistaUsuarioGeneralComponent } from './vista-usuario-general/vista-usuario-general.component';
+import { ChatbotComponent } from './chatbot/chatbot.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { VistaUsuarioGeneralComponent } from './vista-usuario-general/vista-usua
     NosotrosComponent,
     PerfilProfesionalComponent,
     PerfilUsuarioComponent,
-    VistaUsuarioGeneralComponent
+    VistaUsuarioGeneralComponent,
+    ChatbotComponent
   ],
   imports: [
     BrowserModule,

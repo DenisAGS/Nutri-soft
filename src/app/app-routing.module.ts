@@ -9,6 +9,7 @@ import { NutriologosComponent } from './nutriologos/nutriologos.component';
 import { PerfilProfesionalComponent } from './perfil-profesional/perfil-profesional.component';
 import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
 import { VistaUsuarioGeneralComponent } from './vista-usuario-general/vista-usuario-general.component';
+import { ChatbotComponent } from './chatbot/chatbot.component';
 
 const routes: Routes = [
   {
@@ -42,6 +43,10 @@ const routes: Routes = [
   {
     path:'vista-usuarios-general',
     component: VistaUsuarioGeneralComponent
+  },
+  {
+    path:'chatbot',
+    component: ChatbotComponent
   }
 ];
 
