@@ -1,3 +1,5 @@
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
 *{
     margin: 0;
     padding: 0;
@@ -6,9 +8,9 @@
 }
 
 body{
-    margin: -8px;
+    margin: 0px;
     width: auto;
-    height: 100vh;
+    height: 100%;
     background: #081b29;
     display: grid;
     justify-content: center;
@@ -51,7 +53,6 @@ body{
     margin-top: 20px;
     padding-right: 10px;
     font-size: 17px;
-    color: #0ef;
     position: relative;
     display: flex;
     padding-bottom: 10px;
@@ -59,6 +60,7 @@ body{
 
 .nutriologo-check{
     margin-top: 20px;
+    cursor: pointer;
 }
 
 .nutriologo-check .input{
@@ -69,11 +71,40 @@ body{
 
 .nutriologo-check label{
     padding-left: 10px;
+    cursor: pointer;
 }
 
 
 .inp i {
     margin-left: 61px;
+}
+
+.inp-btn{
+    align-items: center;
+    border: none;
+    outline: none;
+    background: none;
+    width: 240px;
+    margin-top: 20px;
+    padding-right: 10px;
+    font-size: 17px;
+    position: relative;
+    display: flex;
+    padding-bottom: 10px;
+}
+
+.inp-btn button i{
+    margin-left: 5px;
+    color: #081b29;
+}
+
+.inp-btn button{
+    color: #081b29;
+    width: 100%;
+    margin-left: 10px;
+    font-weight: 400;
+    height: 30px;
+    cursor: pointer;
 }
 
 .inp::before {

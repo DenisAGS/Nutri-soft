@@ -13,14 +13,14 @@ html {
 }
 
 header{
-    margin: -8px;
+    margin: 0px;
 }
 
 body {
     padding: 0;
-    margin: 8px -8px -8px;
+    margin: 0px 0px 0px;
     width: auto;
-    height: 100%;
+    height: 90%;
     background-color: #081B29;
 }
 
