@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="wrapper">
-        <form class="form" #loginForm="ngForm" (ngSubmit)="validarInicioSesion()">
+        <form class="form" #loginForm="ngForm">
             <h1 class="title">Inicio</h1>
             <div class="inp">
                 <input type="text" name="usuario" id="usuario" placeholder="Usuario" ngModel required>
@@ -18,7 +18,7 @@
                 <input type="password" name="contrasena" id="contrasena" placeholder="Contraseña" ngModel required>
                 <i class="fa fa-eye"></i>  
             </div>
-            <button class="submit" [disabled]="!usuarioRegistrado">Iniciar sesion</button>
+            <button class="submit">Iniciar sesion</button>
             <p class="footer">¿No tienes una cuenta? <a routerLink="/registro" class="link">Por favor, Registrate</a></p>
         </form>
         <div></div>
