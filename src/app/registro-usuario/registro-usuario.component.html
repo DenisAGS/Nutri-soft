@@ -13,7 +13,7 @@
         <form action="" class="form" (ngSubmit)="submitRegistro()">
             <h1 class="title">Registro</h1>
             <div class="inp">
-                <input type="text" placeholder="Usuario">
+                <input type="text" placeholder="Nombre completo">
                 <i class="fa-solid fa-user"></i>
             </div>
             <div class="inp">
@@ -28,15 +28,16 @@
                 <input type="checkbox" name="soyNutriologo" id="soyNutriologo"  [(ngModel)]="soyNutriologo">
                 <label for="soyNutriologo">Soy Nutriólogo</label>
             </div>
-            <!-- Campos adicionales -->
             <div class="inp" *ngIf="soyNutriologo">
                 <input type="text" placeholder="Cedula">
                 <i class="fa fa-user-pen"></i>
             </div>
-            <div class="inp" *ngIf="soyNutriologo">
-                <input type="text" placeholder="Direccion">
-                <i class="fa fa-location-dot"></i>
+            <div class="inp-btn" *ngIf="soyNutriologo">
+                <button (click)="abrirModalDireccion()">Agregar Direccion
+                    <i class="fa fa-location-dot"></i>
+                </button>
             </div>
+            
             <div class="inp" *ngIf="soyNutriologo">
                 <input type="text" placeholder="Sobre mi">
                 <i class="fa fa-id-card-clip"></i>

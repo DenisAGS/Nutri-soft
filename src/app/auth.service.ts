@@ -14,7 +14,6 @@ export class AuthService {
   }
 
   autenticarUsuario(usuario: string, contrasena: string): boolean {
-    // Lógica de autenticación real aquí
     return this.usuariosRegistrados.some(u => u.usuario === usuario && u.contrasena === contrasena);
   }
   

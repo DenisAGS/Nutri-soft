@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario</title>
+</head>
+
+<body>
+
+  <form action="" class="form">
+    <div class="modal">
+      <h1>Ingresa la dirección</h1>
+      <div class="input-container">
+        <label for="calle">Calle:</label>
+        <input type="text" [(ngModel)]="calle" id="calle" name="calle" placeholder="Ingrese la calle">
+      </div>
+      <div class="input-container">
+        <label for="ciudad">Ciudad:</label>
+        <input type="text" [(ngModel)]="ciudad" id="ciudad" name="ciudad" placeholder="Ingrese la ciudad">
+      </div>
+      <div class="input-container">
+        <label for="codigoPostal">Código Postal:</label>
+        <input type="number" [(ngModel)]="codigoPostal" id="codigoPostal" name="codigoPostal" placeholder="Ingrese el código postal">
+      </div>
+      <div class="input-container">
+        <label for="colonia">Colonia:</label>
+        <input type="text" [(ngModel)]="colonia" id="colonia" name="colonia" placeholder="Ingrese la colonia">
+      </div>
+      <div class="input-container">
+        <label for="estado">Estado:</label>
+        <input type="text" [(ngModel)]="estado" id="estado" name="estado" placeholder="Ingrese el estado">
+      </div>
+      <div class="input-container">
+        <label for="numero">Numero:</label>
+        <input type="number" [(ngModel)]="numero" id="numero" name="numero" placeholder="Ingrese el numero">
+      </div>
+      <div class="input-container">
+        <label for="pais">Pais:</label>
+        <input type="text" [(ngModel)]="pais" id="pais" name="pais" placeholder="Ingrese el pais">
+      </div>
+      <div class="btn">
+        <button id="enviar" type="submit" (click)="onAceptar()">Enviar</button>
+        <button id="cancelar" type="submit" (click)="onCancelar()">Cancelar</button>
+      </div>
+    </div>
+  </form>
+
+</body>
+
+</html>
