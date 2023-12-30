@@ -18,6 +18,9 @@ import { ChatbotComponent } from './chatbot/chatbot.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { ToastrModule, ToastrService } from 'ngx-toastr';
+
 
 /*Conexion*/
 import { HttpClientModule } from '@angular/common/http';
@@ -65,7 +68,10 @@ export function createApollo(httpLink: HttpLink): ApolloClientOptions<any> {
     HttpClientModule,
     NgbModule,
     BrowserAnimationsModule,
-    GraphQLModule
+    GraphQLModule,
+    DragDropModule,
+    ToastrModule.forRoot( { positionClass: 'toast-top-center' }),
+    
   ],
   providers: [
     {

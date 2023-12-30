@@ -106,3 +106,9 @@ button {
 .modal-content #cancelar:hover{
     background-color: #6d6d6d;
 }
+
+
+/*Para mover la pantalla por cualquier lugar de la pagina*/
+.modal:active{
+    cursor: grabbing;
+}
