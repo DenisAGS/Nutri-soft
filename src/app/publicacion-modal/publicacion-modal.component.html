@@ -1,0 +1,18 @@
+<div class="modal">
+    <div class="modal-content">
+        <div class="user-info">
+            <img src="../../assets/images/usuario.png" alt="Foto de perfil">
+            <p>{{ nombreDeUsuario }}</p>
+        </div>
+        <div class="input-container">
+            <p>{{ getCurrentDate() }}</p>
+        </div>
+        <textarea [(ngModel)]="tipText" placeholder="Escribe tu tip..." class="textarea"></textarea>
+        <div class="btn-images">
+            <img *ngIf="selectedFile" [src]="previewImage" alt="Vista previa de la imagen">
+            <input type="file" (change)="onFileSelected($event)" accept="image/*">
+        </div>
+        <button id="publicar" (click)="publicar()">Publicar</button>
+        <button id="cancelar" (click)="cancelar()">Cancelar</button>
+    </div>
+</div>

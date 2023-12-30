@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DigitalTechBooks</title>
+    <title>Nutri-Soft</title>
+    
 </head>
 
 <header>
@@ -15,6 +16,12 @@
 
     <div class="secciones">
         <div class="publicaciones-inicio">
+          <div class="crear-publicacion">
+            <img src="../../assets/images/usuario.png" alt="">
+            <button class="btn-crear-publicacion" (click)="abrirVentana()">
+              <a>¿Quieres publicar un tip?</a>
+            </button>
+          </div>
             <h1>Bienvenido a Nutri-soft donde nos preocupamos por tu salud</h1>
             <div *ngFor="let pubInfo of listaPubInfo" class="pub-info">
                 <div class="header-info">
