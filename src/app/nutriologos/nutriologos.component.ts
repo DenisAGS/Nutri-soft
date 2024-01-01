@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as L from 'leaflet';
 
 declare var google: any;
 
@@ -12,23 +13,21 @@ export class NutriologosComponent {
 
   constructor() { }
 
-  /*
   ngOnInit(): void {
-    this.inicializarMapa();
+    this.initMap();
   }
 
+  private initMap(): void {
+    // Coordenadas iniciales (centro de ejemplo)
+    const initialCoords: L.LatLngExpression = [0, 0];
 
-  inicializarMapa() {
-      center: { lat: 0, lng: 0 },
-      zoom: 8
-    };
+    this.map = L.map('map').setView(initialCoords, 10);
 
-    const opcionesMapa: google.maps.MapOptions = {
-    this.map = new google.maps.Map(document.getElementById('map') as HTMLElement, opcionesMapa);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors',
+    }).addTo(this.map);
+
+    L.marker(initialCoords).addTo(this.map);
   }
-
-  buscarNutriologos() {
-
-  }*/
 
 }

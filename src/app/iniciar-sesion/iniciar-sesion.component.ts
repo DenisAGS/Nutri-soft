@@ -1,7 +1,7 @@
 import { Component,ViewChild, ElementRef  } from '@angular/core';
-import { NgForm } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-iniciar-sesion',
@@ -9,23 +9,21 @@ import { Router } from '@angular/router';
   styleUrls: ['./iniciar-sesion.component.css']
 })
 export class IniciarSesionComponent {
-  usuarioRegistrado = false; 
-  @ViewChild('loginForm',  { static: false }) loginForm!: NgForm;
+  correo: string = '';
+  contrasena: string = '';
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService,private router:Router) { }
 
-  validarInicioSesion() {
-    const usuario = this.loginForm.value.usuario;
-    const contrasena = this.loginForm.value.contrasena;
-
-    this.usuarioRegistrado = this.authService.verificarUsuarioRegistrado(usuario);
-
-    if (this.usuarioRegistrado && this.authService.autenticarUsuario(usuario, contrasena)) {
-      alert('Inicio de sesión exitoso');
-      // Redireccionar a la página correspondiente
-      this.router.navigate(['/']);
-    } else {
-      alert('Usuario o contraseña incorrectos');
-    }
+  onSubmit() {
+    this.authService.autenticarUsuario(this.correo, this.contrasena).subscribe(
+      () => {
+        console.log("Sesión iniciada");
+        this.router.navigate(['/inicio']);
+      },
+      (error) => {
+        console.log("Error al iniciar sesión:", error);
+        // Aquí puedes manejar el error de inicio de sesión
+      }
+    );
   }
 }

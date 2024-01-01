@@ -12,14 +12,10 @@ html {
     scroll-behavior: smooth;
 }
 
-header{
-    margin: -8px;
-}
 
 body {
     padding: 0;
-    margin: 8px -8px -8px;
-    width: auto;
+    width: 100%;
     height: 100%;
     background-color: #081B29;
 }
@@ -33,7 +29,7 @@ body {
 
 .chat-container {
     width: 60%;
-    margin: 50px 0px 20px;
+    margin: 50px 0px 0px;
     overflow-y: auto; 
     height: 400px; 
     display: flex;

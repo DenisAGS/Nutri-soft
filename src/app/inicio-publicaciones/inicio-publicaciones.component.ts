@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { PublicacionModalComponent } from '../publicacion-modal/publicacion-modal.component';
 
 @Component({
   selector: 'app-inicio-publicaciones',
@@ -34,13 +36,18 @@ export class InicioPublicacionesComponent {
       ],
 
       isChecked: false,
-      likesCount: 2,
+      likesCount: 0,
       isCheckedSave: false 
     },
   ];
 
   totalLikes = 0;
 
+  constructor(private modalService: NgbModal) {}
+
+  abrirVentana(): void {
+    const modalRef = this.modalService.open(PublicacionModalComponent, { centered: true});
+  }
 
   toggleCheckbox(pubInfo: any) {
     pubInfo.isChecked = !pubInfo.isChecked;

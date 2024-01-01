@@ -18,14 +18,30 @@ import { ChatbotComponent } from './chatbot/chatbot.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { ToastrModule, ToastrService } from 'ngx-toastr';
+
 
 /*Conexion*/
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { Apollo, APOLLO_OPTIONS } from 'apollo-angular';
 import { InMemoryCache } from '@apollo/client/core';
 import { HttpLink } from 'apollo-angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DireccionModalComponent } from './direccion-modal/direccion-modal.component';
+import { GraphQLModule } from './graphql.module';
+import { ApolloModule } from 'apollo-angular';
+import { ApolloClientOptions } from '@apollo/client/core';
+import { PublicacionModalComponent } from './publicacion-modal/publicacion-modal.component';
+import { AuthInterceptor } from './auth-interceptor';
+
+const uri = 'http://127.0.0.1:8000/graphql/'; // <-- add the URL of the GraphQL server here
+export function createApollo(httpLink: HttpLink): ApolloClientOptions<any> {
+  return {
+    link: httpLink.create({ uri }),
+    cache: new InMemoryCache(),
+  };
+}
 
 @NgModule({
   declarations: [
@@ -40,7 +56,8 @@ import { DireccionModalComponent } from './direccion-modal/direccion-modal.compo
     PerfilUsuarioComponent,
     VistaUsuarioGeneralComponent,
     ChatbotComponent,
-    DireccionModalComponent
+    DireccionModalComponent,
+    PublicacionModalComponent
   ],
   imports: [
     MatInputModule,
@@ -51,21 +68,23 @@ import { DireccionModalComponent } from './direccion-modal/direccion-modal.compo
     FormsModule,
     HttpClientModule,
     NgbModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    GraphQLModule,
+    DragDropModule,
+    ToastrModule.forRoot( { positionClass: 'toast-top-center' }),
+    
   ],
   providers: [
     {
       provide: APOLLO_OPTIONS,
-      useFactory: (httpLink: HttpLink) => {
-        return {
-          cache: new InMemoryCache(),
-          link: httpLink.create({
-            uri: 'URL_DE_TU_API_GRAPHQL', // Reemplaza con la URL de tu servidor GraphQL
-          }),
-        };
-      },
+      useFactory: createApollo,
       deps: [HttpLink],
     },
+    {
+      provide: HTTP_INTERCEPTORS
+      , useClass: AuthInterceptor
+      , multi: true
+    }
   ],
   bootstrap: [AppComponent],
 

@@ -1,6 +1,5 @@
 @import "~font-awesome/css/font-awesome.css";
 
-
 * {
     margin: 0;
     padding: 0;
@@ -14,26 +13,70 @@ html {
 }
 
 header{
-    margin: -8px;
+    margin: 0px;
 }
 
 body {
     padding: 0;
-    margin: 8px -8px -8px;
-    width: 100%;
+    margin: 0px 0px 0px;
+    width: auto;
     height: 100%;
     background-color: #081B29;
 }
 
 .secciones {
-    display: flex;
     align-items: center;
     justify-content: center;
-    padding: 40px 40px 40x;
+}
+h1{
+    color: #FFF;
+    text-align: center;
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    padding: 20px;
+}
+
+.buscador{
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    margin-left: 30px;
+}
+
+.buscador input{
+    width: 300px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin-left: 10px;
+}
+
+.buscador button{
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin-left: 10px;
+    background-color: #da7400;
+    color: #FFF;
+    cursor: pointer;
 }
 
 #map {
-    height: 400px;
     width: 100%;
-  }
-  
+    max-width: 500px; 
+    height: 10px; 
+    margin-top: 70px;
+    margin-left: 30px;
+}
+
+#map-container {
+    height: 300px; 
+    width: 100%;
+    margin-top: 20px; 
+    border: 1px solid #ccc;
+}
