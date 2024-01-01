@@ -10,26 +10,28 @@
 
 <body>
     <div class="wrapper" [style.height]="wrapperHeight">
-        <form action="" class="form" (ngSubmit)="submitRegistro()">
+        <form action="" class="form">
             <h1 class="title">Registro</h1>
             <div class="inp">
-                <input type="text" placeholder="Nombre completo">
+                <input type="text" placeholder="Nombre completo" [(ngModel)]="nombre" name="nombre">
                 <i class="fa-solid fa-user"></i>
             </div>
             <div class="inp">
-                <input type="email" name="" id="" placeholder="Correo electronico">
+                <input type="email" name="" placeholder="Correo electronico" [(ngModel)]="correo" name="correo">
                 <i class="fa fa-envelope"></i>
             </div>
             <div class="inp">
-                <input type="password" name="" id="" placeholder="Contraseña">
+                <input type="password" name="" placeholder="Contraseña" [(ngModel)]="contrasenia" name="contrasenia">
                 <i class="fa fa-eye"></i>
             </div>
+
             <div class="nutriologo-check">
-                <input type="checkbox" name="soyNutriologo" id="soyNutriologo"  [(ngModel)]="soyNutriologo">
+                <input type="checkbox" name="soyNutriologo" id="soyNutriologo"  [(ngModel)]="soyNutriologo" (change)="actualizarWrapperHeight()">
                 <label for="soyNutriologo">Soy Nutriólogo</label>
             </div>
+
             <div class="inp" *ngIf="soyNutriologo">
-                <input type="text" placeholder="Cedula">
+                <input type="text" placeholder="Cedula" [(ngModel)]="cedula" name="cedula">
                 <i class="fa fa-user-pen"></i>
             </div>
             <div class="inp-btn" *ngIf="soyNutriologo">
@@ -39,11 +41,12 @@
             </div>
             
             <div class="inp" *ngIf="soyNutriologo">
-                <input type="text" placeholder="Sobre mi">
+                <input type="text" placeholder="Sobre mi" [(ngModel)]="sobreMi" name="sobreMi"/>
                 <i class="fa fa-id-card-clip"></i>
             </div>
 
-            <button class="submit" routerLink="/">Registrarse</button>
+            <button class="submit" (click)="submitRegistro()">Registrarse</button>
+
             <p class="footer">¿Tienes una cuenta? <a routerLink="/iniciar-sesion" class="link">Por favor, inicia
                     sesion</a></p>
         </form>
