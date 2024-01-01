@@ -20,7 +20,7 @@ body {
     padding: 0;
     margin: 0px 0px 0px;
     width: auto;
-    height: 100%;
+    height: 90%;
     background-color: #081B29;
 }
 
@@ -66,17 +66,14 @@ h1{
     cursor: pointer;
 }
 
-#map {
-    width: 100%;
-    max-width: 500px; 
-    height: 10px; 
-    margin-top: 70px;
-    margin-left: 30px;
-}
-
 #map-container {
     height: 300px; 
     width: 100%;
     margin-top: 20px; 
     border: 1px solid #ccc;
+}
+
+#map {
+    height: 100px;
+    width: 100%;
 }

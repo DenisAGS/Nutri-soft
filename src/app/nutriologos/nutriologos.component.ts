@@ -17,17 +17,18 @@ export class NutriologosComponent {
     this.initMap();
   }
 
-  private initMap(): void {
-    // Coordenadas iniciales (centro de ejemplo)
-    const initialCoords: L.LatLngExpression = [0, 0];
+  initMap(): void {
+    this.map = L.map('map', {
+      center: [20.659698, -103.349609],
+      zoom: 13
+    });
 
-    this.map = L.map('map').setView(initialCoords, 10);
+    const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      minZoom: 12,
+      maxZoom: 10
+    });
 
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '© OpenStreetMap contributors',
-    }).addTo(this.map);
-
-    L.marker(initialCoords).addTo(this.map);
+    tiles.addTo(this.map);
   }
 
 }
