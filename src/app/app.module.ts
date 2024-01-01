@@ -23,7 +23,7 @@ import { ToastrModule, ToastrService } from 'ngx-toastr';
 
 
 /*Conexion*/
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { Apollo, APOLLO_OPTIONS } from 'apollo-angular';
 import { InMemoryCache } from '@apollo/client/core';
 import { HttpLink } from 'apollo-angular/http';
@@ -33,6 +33,7 @@ import { GraphQLModule } from './graphql.module';
 import { ApolloModule } from 'apollo-angular';
 import { ApolloClientOptions } from '@apollo/client/core';
 import { PublicacionModalComponent } from './publicacion-modal/publicacion-modal.component';
+import { AuthInterceptor } from './auth-interceptor';
 
 const uri = 'http://127.0.0.1:8000/graphql/'; // <-- add the URL of the GraphQL server here
 export function createApollo(httpLink: HttpLink): ApolloClientOptions<any> {
@@ -79,6 +80,11 @@ export function createApollo(httpLink: HttpLink): ApolloClientOptions<any> {
       useFactory: createApollo,
       deps: [HttpLink],
     },
+    {
+      provide: HTTP_INTERCEPTORS
+      , useClass: AuthInterceptor
+      , multi: true
+    }
   ],
   bootstrap: [AppComponent],
 
