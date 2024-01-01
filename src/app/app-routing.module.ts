@@ -13,7 +13,7 @@ import { ChatbotComponent } from './chatbot/chatbot.component';
 
 const routes: Routes = [
   {
-    path:'',
+    path:'inicio',
     component: InicioPublicacionesComponent
   },
   {
