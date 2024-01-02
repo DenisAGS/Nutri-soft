@@ -98,6 +98,19 @@ header a:hover, footer a:hover {
   color: #127a7a;
 }
 
+.all-links .icon-user-login{
+  width: 40px;
+  height: 40px;
+  margin-left: 20px;
+}
+
+.all-links .name-user-login{
+  margin-left: 5px;
+  margin-right: 20px;
+  color: #FFFFFF;
+  font-size: 20px;
+  cursor: pointer;
+}
 
 @media screen and (max-width:1300px){
     .navbar button{

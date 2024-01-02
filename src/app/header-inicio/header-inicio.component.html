@@ -23,14 +23,19 @@
             </label>
     
             <ul class="all-links">
+              <ng-container *ngIf="!userIsLoggedIn">
               <li><a routerLink="/inicio">Inicio</a></li>
               <li><a routerLink="/nutriologos">Nutriologos</a></li>
-              <li><a routerLink="/chatbot">Chatbot</a></li>
               <li><a routerLink="/nosotros">Nosotros</a></li>
+            </ng-container>
 
               <ng-container *ngIf="userIsLoggedIn; else loginButton">
-                <img src="../../assets/images/usuario.png" alt="Usuario">
-                <p>{{ usuarioActivo.nombresCompleto }}</p>
+                <li><a routerLink="/inicio">Inicio</a></li>
+                <li><a routerLink="/nutriologos">Nutriologos</a></li>
+                <li><a routerLink="/nosotros">Nosotros</a></li>
+                <li><a routerLink="/chatbot">Chatbot</a></li>
+                <img class="icon-user-login" src="../../assets/images/usuario.png" alt="Usuario">
+                <p class="name-user-login">{{ usuarioActivo.nombresCompleto }}</p>
               </ng-container>
 
               <ng-template #loginButton>
