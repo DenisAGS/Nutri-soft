@@ -10,6 +10,7 @@ import { PerfilProfesionalComponent } from './perfil-profesional/perfil-profesio
 import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
 import { VistaUsuarioGeneralComponent } from './vista-usuario-general/vista-usuario-general.component';
 import { ChatbotComponent } from './chatbot/chatbot.component';
+import { EditarUsuarioComponent } from './editar-usuario/editar-usuario.component';
 
 const routes: Routes = [
   {
@@ -47,7 +48,12 @@ const routes: Routes = [
   {
     path:'chatbot',
     component: ChatbotComponent
-  }
+  },
+  {
+    path:'editar-usuario',
+    component: EditarUsuarioComponent
+  },
+
 ];
 
 @NgModule({

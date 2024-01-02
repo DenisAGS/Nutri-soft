@@ -16,7 +16,7 @@ html {
 body {
     padding: 0;
     width: 100%;
-    height: 100%;
+    height: 90%;
     background-color: #081B29;
 }
 
@@ -29,7 +29,7 @@ body {
 
 .chat-container {
     width: 60%;
-    margin: 50px 0px 0px;
+    margin: 40px 0px 30px;
     overflow-y: auto; 
     height: 400px; 
     display: flex;
@@ -75,7 +75,7 @@ body {
     bottom: 0;
     background-color: #f1f1f1;
     border: none;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     width: 55%;
     height: 50px;
     border-radius: 30px;

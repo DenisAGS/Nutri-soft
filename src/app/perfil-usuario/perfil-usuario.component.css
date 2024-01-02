@@ -1,6 +1,3 @@
-@import "~font-awesome/css/font-awesome.css";
-
-
 * {
     margin: 0;
     padding: 0;
@@ -14,13 +11,14 @@ html {
 }
 
 header{
-    margin: -8px;
+    margin: 0px;
 }
 
 body {
-    margin: 8px -8px -8px;
+    padding: 0;
+    margin: 0px 0px 0px;
     width: auto;
-    height: 100%;
+    height: 90%;
     background-color: #081B29;
 }
 
@@ -43,12 +41,13 @@ body {
 }
 .publicaciones-guardadas h1{
     color: #FFF;
-    font-size: 30px;
+    font-size: 25px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
     align-items: center;
     margin: 0 auto;
+    margin-bottom: 20px;
 }
 
 .publicaciones-guardadas .content-texto{
@@ -65,6 +64,8 @@ body {
     font-size: 44px; 
     color: #FFF;
     display: flex;
+    margin-right: 20px;
+    cursor: pointer;
 }
 
  .publicaciones-guardadas .content-guardadas{
@@ -74,7 +75,7 @@ body {
     border-radius: 20px;
     background: #FBCCA7;
     padding: 20px;
-    max-height: 406px;
+    max-height: 306px;
     overflow-y: auto;
 }
 
@@ -82,20 +83,66 @@ body {
     border-radius: 7px;
     background: #FFF;
     padding: 20px;
-    display: flex;
     margin-top: 20px;
 }
 
-.content-guardadas .guardadas img{
-    width: 15%;
-    flex-shrink: 0;
-    margin-right: 20px;
-    height: auto;
+.guardadas .header-info{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.content-datos{
+    display: flex;
+    align-items: center;
+}
+
+.content-datos img{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.content-datos .text-user{
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+}
+
+.content-datos .text-user .name-usuario{
+    cursor: pointer;
+}
+
+.content-datos .text-user .name-usuario:hover{
+    color: #A85A00;
+}
+
+.guardadas .body-info{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.guardadas .body-info .img-body img{
+    width: 100%;
+    height: 100%;
     border-radius: 10px;
 }
 
-.guardadas .texto{
-    font-size: 14px;
+.guardadas .body-info .texto-body{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    background: #FFF;
+    padding: 10px;
+    margin-left: 15px;
+}
+
+.guardadas .body-info .texto-body span {
+    display: flex;
+    justify-content: right;
 }
 
 .fa-bookmark{
@@ -106,7 +153,9 @@ body {
 }
 
 .fa-bookmark.filled{
-    color: #A85A00;
+    color: transparent;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #000000;
 }
 
 .guardadas .guardar{
@@ -116,6 +165,43 @@ body {
     width: auto;
     height: 39px;
     background-color: transparent;
+}
+
+.user{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.user img{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.user .name{
+    font-size: 15px;
+    color: #FFF;
+}
+
+.otros-datos{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.otros-datos span{
+    font-size: 15px;
+    color: #FFF;
+}
+
+.otros-datos p{
+    font-size: 15px;
+    color: #FFF;
+    margin-left: 10px;
 }
 
 @media screen and (max-width: 600px) {

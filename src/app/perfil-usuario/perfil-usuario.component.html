@@ -13,56 +13,49 @@
 <body>
     <div class="secciones">
         <div class="publicaciones-guardadas">
-            <div class="content-texto">
-                <div class="title">
-                    <div class="arrow-icon">
-                        <i class="fa-solid fa-less-than"></i>
-                    </div>                
+            <div class="user">
+                <img src="../../assets/images/usuario.png" alt="">
+                <div class="name">
+                    <h2>{{ nombreUsuario }}</h2>
                 </div>
+            </div>
+            <div class="otros-datos">
+                <span>Correo: </span>
+                <p>{{ correoUsuario }}</p>
+            </div>
+            <div class="content-texto">
                 <h1>Publicaciones guardadas</h1>
             </div>
             <div class="content-guardadas">
-                <div class="guardadas">
-                    <img src="../../assets/images/publicaciones/ensalada-verde.png" alt="">
-                    <div class="texto">
-                        <h3>Tips para tener un dia lleno de energia</h3>
-                        <p>¡Tips para tener un dia lleno de energia!
-
-                            1. Dormir lo suficiente: Dormir entre 7 y 9 horas por noche es esencial para repecuperar la energia fisica y mental
-                             2. Desayunar bien: Un desayuno equilibrado, rico en proteinas, fibra y carbohidratos saludables, te proporcionara la energia necesaria para comenzar el dia. 
-                              3. Hidratacion: Mantenerse hidratado es clave para tener energia durante todo el dia. Se recomienda beber al menos 8 vasos de agua al dia.</p>
+                <div *ngFor="let pubInfo of listaPubInfo" class="guardadas">
+                    <div class="header-info">
+                        <div class="content-datos">
+                            <div class="img-user">
+                                <img src="../../assets/images/usuario.png" alt="">
+                            </div>
+                            <div class="text-user">
+                                <span class="name-usuario">{{ pubInfo.nombre }}</span>
+                                <span class="title2">{{ pubInfo.especialidad }}</span>
+                            </div>
+                        </div>
+                        <div class="btn-funciones">
+                            <button class="guardar" (click)="toggleCheckboxSave(pubInfo)" >
+                                <i class="fa fa-bookmark" [ngClass]="{ 'filled': pubInfo.isCheckedSave }"></i>
+                            </button>
+                        </div>
                     </div>
-                    <button class="guardar" (click)="toggleCheckboxSave()">
-                        <i class="fa fa-bookmark" [ngClass]="{ }"></i>
-                    </button>
-                </div>
-                <div class="guardadas">
-                    <img src="../../assets/images/publicaciones/ensalada-verde.png" alt="">
-                    <div class="texto">
-                        <h3>Tips para tener un dia lleno de energia</h3>
-                        <p>¡Tips para tener un dia lleno de energia!
-
-                            1. Dormir lo suficiente: Dormir entre 7 y 9 horas por noche es esencial para repecuperar la energia fisica y mental
-                             2. Desayunar bien: Un desayuno equilibrado, rico en proteinas, fibra y carbohidratos saludables, te proporcionara la energia necesaria para comenzar el dia. 
-                              3. Hidratacion: Mantenerse hidratado es clave para tener energia durante todo el dia. Se recomienda beber al menos 8 vasos de agua al dia.</p>
+                    <div class="body-info">
+                        <div class="img-body">
+                            <img src="../../assets/images/publicaciones/ensalada.png" alt="">
+                        </div>
+                        <div class="texto-body">
+                            <span>{{ pubInfo.fecha }}</span>
+                            <h6>{{ pubInfo.titulo }}</h6>
+                            <ul>
+                                <li *ngFor="let contenidoItem of pubInfo.contenido">{{ contenidoItem }}</li>
+                            </ul>
+                        </div>
                     </div>
-                    <button class="guardar" (click)="toggleCheckboxSave()">
-                        <i class="fa fa-bookmark" [ngClass]="{ }"></i>
-                    </button>
-                </div>
-                <div class="guardadas">
-                    <img src="../../assets/images/publicaciones/ensalada-verde.png" alt="">
-                    <div class="texto">
-                        <h3>Tips para tener un dia lleno de energia</h3>
-                        <p>¡Tips para tener un dia lleno de energia!
-
-                            1. Dormir lo suficiente: Dormir entre 7 y 9 horas por noche es esencial para repecuperar la energia fisica y mental
-                             2. Desayunar bien: Un desayuno equilibrado, rico en proteinas, fibra y carbohidratos saludables, te proporcionara la energia necesaria para comenzar el dia. 
-                              3. Hidratacion: Mantenerse hidratado es clave para tener energia durante todo el dia. Se recomienda beber al menos 8 vasos de agua al dia.</p>
-                    </div>
-                    <button class="guardar" (click)="toggleCheckboxSave()">
-                        <i class="fa fa-bookmark" [ngClass]="{ }"></i>
-                    </button>
                 </div>
             </div>
         </div>

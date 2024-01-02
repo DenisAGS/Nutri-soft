@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<header>
+    <app-header-inicio></app-header-inicio>
+</header>
+
+<body>
+    <div class="secciones">
+        <div class="publicaciones-guardadas">
+            <div class="datos">
+                <div class="user">
+                    <img src="../../assets/images/usuario.png" alt="">
+                    <div class="nombre">
+                        <h2>{{ nombreUsuario }}</h2>
+            
+                    </div>
+                </div>
+                <div class="informacion-adicional">
+                    <div class="informacion">
+                        <div class="campo">
+                            <label>Correo:</label>
+                            <span>{{ correo }}</span>
+                        </div>
+                        <div class="campo">
+                            <label>Dirección:</label>
+                            <span>{{ direccion }}</span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="redes-generales">
+
+                    <div class="seguir">
+                        <button routerLink="/perfil-usuario">
+                          Guardados
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
