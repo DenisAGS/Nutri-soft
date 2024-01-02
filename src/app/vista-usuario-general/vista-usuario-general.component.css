@@ -1,33 +1,30 @@
-@import "~font-awesome/css/font-awesome.css";
-
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-    font-style: normal;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 header{
-    margin: -8px;
+  margin: 0px;
 }
 
 body {
-    padding: 0;
-    margin: 8px -8px -8px;
-    width: auto;
-    height: 100%;
-    background-color: #081B29;
+  padding: 0;
+  margin: 0px 0px 0px;
+  width: auto;
+  height: 90%;
+  background-color: #081B29;
 }
 
 .secciones {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .publicaciones-guardadas{
