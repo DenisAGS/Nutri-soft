@@ -10,6 +10,9 @@
     <div class="wrapper">
         <form class="form" #loginForm="ngForm" (ngSubmit)="onSubmit()">
             <h1 class="title">Inicio</h1>
+            <div *ngIf="showNotification" class="notification">
+                Todos los campos deben ser rellenados.
+            </div>
             <div class="inp">
                 <input type="text" name="correo" id="correo" placeholder="correo" [(ngModel)]="correo" required>
                 <i class="fa-solid fa-user"></i>

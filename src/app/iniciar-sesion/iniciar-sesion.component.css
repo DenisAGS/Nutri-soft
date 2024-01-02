@@ -73,7 +73,7 @@ body{
 .inp input{
     border: none;
     outline: none;
-    background: #081b29;
+    background-color: #081b29;
     height: 20px;
     width: 206px;
     color: #fff;
@@ -138,3 +138,4 @@ body{
     line-height: 24px;
     letter-spacing: 1px;
 }
+ 
