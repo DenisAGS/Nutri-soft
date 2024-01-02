@@ -151,6 +151,7 @@ body {
     margin: 0px 3%;
     position: sticky;
     top: 0;
+    display: none;
 }
 
 .fijo-menu .nutriologos-disponibles {
@@ -363,4 +364,11 @@ body {
     width: 5.5%;
     height: 5.5%;
     margin-right: 20px;
+}
+
+.noPublic{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
 }

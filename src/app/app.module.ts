@@ -35,6 +35,7 @@ import { ApolloClientOptions } from '@apollo/client/core';
 import { PublicacionModalComponent } from './publicacion-modal/publicacion-modal.component';
 import { AuthInterceptor } from './auth-interceptor';
 import { EditarUsuarioComponent } from './editar-usuario/editar-usuario.component';
+import { CommonModule } from '@angular/common';
 
 const uri = 'http://127.0.0.1:8000/graphql/'; // <-- add the URL of the GraphQL server here
 export function createApollo(httpLink: HttpLink): ApolloClientOptions<any> {
@@ -74,6 +75,7 @@ export function createApollo(httpLink: HttpLink): ApolloClientOptions<any> {
     GraphQLModule,
     DragDropModule,
     ReactiveFormsModule,
+    CommonModule,
     ToastrModule.forRoot( { positionClass: 'toast-top-center' }),
     
   ],
