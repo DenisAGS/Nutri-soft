@@ -9,6 +9,8 @@ export class PerfilUsuarioComponent {
   nombreUsuario = 'Obed Hipolito - Orizaba';
   correoUsuario = 'denise@gmail.com';
 
+  
+
   listaPubInfo = [
     {
       nombre: 'Obeb Hipolito - Orizaba',

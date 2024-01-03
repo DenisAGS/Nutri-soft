@@ -15,11 +15,7 @@
         <div class="publicaciones-guardadas">
             <div class="datos">
                 <div class="user">
-                    <input type="file" accept="image/*" style="display: none;" #fileInput (change)="onFileSelected($event)">
-                    <img class="img-subir" [src]="imagenUsuario || '../../assets/images/usuario.png'" alt="">
-                    <label class="icono-cargar-imagen" (click)="fileInput.click()">
-                        <i class="fas fa-camera"></i>
-                    </label>   
+                    <img class="img-subir" src="../../assets/images/usuario.png" alt="">
                     <div class="nombre">
                         <h2>{{ conectadoInfo.nombresCompleto }}</h2>
                         <div class="estrellas">
@@ -28,18 +24,30 @@
                         </div>
                     </div>
                 </div>
-                     
                 <div class="informacion-adicional">
                     <div class="informacion">
                         <div class="campo">
                             <label>Cédula:</label>
+                          
                             <span>{{ conectadoInfo.cedula }}</span>
 
                         </div>
                         <div class="campo">
                             <label>Dirección:</label>
-                            <span *ngIf="!editando">{{ conectadoInfo.direccion?.ciudad }}</span>
-                            <input *ngIf="editando" [ngModel]="conectadoInfo.direccion?.ciudad" (ngModelChange)="conectadoInfo.direccion = conectadoInfo.direccion || {}; conectadoInfo.direccion.ciudad = $event" placeholder="Ingrese su dirección">
+                            <!-- ... Otros códigos ... -->
+
+<div class="campo">
+    <label>Dirección:</label>
+    <span *ngIf="!editando">{{ conectadoInfo.direccion?.calle }}, {{ conectadoInfo.direccion?.colonia }}, {{ conectadoInfo.direccion?.ciudad }} - CP {{ conectadoInfo.direccion?.codigoPostal }}</span>
+    <div *ngIf="editando">
+        <input [ngModel]="conectadoInfo.direccion?.calle" (ngModelChange)="conectadoInfo.direccion = conectadoInfo.direccion || {}; conectadoInfo.direccion.calle = $event" placeholder="Calle">
+        <input [ngModel]="conectadoInfo.direccion?.colonia" (ngModelChange)="conectadoInfo.direccion = conectadoInfo.direccion || {}; conectadoInfo.direccion.colonia = $event" placeholder="Colonia">
+        <input [ngModel]="conectadoInfo.direccion?.ciudad" (ngModelChange)="conectadoInfo.direccion = conectadoInfo.direccion || {}; conectadoInfo.direccion.ciudad = $event" placeholder="Ciudad">
+        <input [ngModel]="conectadoInfo.direccion?.codigoPostal" (ngModelChange)="conectadoInfo.direccion = conectadoInfo.direccion || {}; conectadoInfo.direccion.codigoPostal = $event" placeholder="Código Postal">
+    </div>
+</div>
+
+<!-- ... Otros códigos ... -->
 
 
                         </div>
