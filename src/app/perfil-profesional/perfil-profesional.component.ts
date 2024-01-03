@@ -5,6 +5,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { PublicacionModalComponent } from '../publicacion-modal/publicacion-modal.component';
 import { Apollo } from 'apollo-angular';
 import { gql } from 'apollo-angular';
+import { AuthService } from '../auth.service';
 
 class Opinion {
   nombre: string;
@@ -43,11 +44,23 @@ export class PerfilProfesionalComponent {
     this.verMasClicked = !this.verMasClicked;
   }
 
-  constructor(private apollo: Apollo, private modalService: NgbModal) { }
-
+  constructor(private apollo: Apollo, private modalService: NgbModal, private authService: AuthService) {}
+/*
   ngOnInit(): void {
     this.obtenerInformacionConectado();
+  }*/
+
+  ngOnInit(): void {
+    // Verifica el tipo de usuario y realiza acciones en consecuencia
+    const tipoUsuario = this.authService.tipoUsuario;
+  if (tipoUsuario !== 'perfil-profesional') {
+    // Redirige a la página de inicio de sesión u otra acción
+    // Puedes agregar lógica adicional según tus requisitos.
+
+    this.obtenerInformacionConectado();
+    }
   }
+
 
   onFileSelected(event: any) {
     const file: File = event.target.files[0];
