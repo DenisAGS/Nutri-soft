@@ -27,7 +27,11 @@ export class IniciarSesionComponent {
           .subscribe(
             () => {
               console.log('Sesión iniciada');
-              this.router.navigate(['/inicio']);
+              const token = this.authService.getAuthToken();
+              if (token) {
+                localStorage.setItem('token', token);
+                this.router.navigate(['/inicio']);
+              }
             },
             (error) => {
               console.log('Error al iniciar sesión:', error);

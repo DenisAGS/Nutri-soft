@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Apollo } from 'apollo-angular';
 import { gql } from 'apollo-angular';
 
@@ -12,9 +13,13 @@ export class HeaderInicioComponent implements OnInit{
   usuarioActivo: any;
   isUserModalOpen = false;
 
-  constructor(private apollo: Apollo) {}
+  authToken: string = '';
+  tipoUsuario: string = '';
+
+  constructor(private apollo: Apollo, private router: Router) {}
 
   ngOnInit(): void {
+    this.authToken = localStorage.getItem('token') || '';
     this.verificarUsuarioActivo();
   }
 
@@ -31,30 +36,41 @@ export class HeaderInicioComponent implements OnInit{
   }
 
   logout(): void {
+    localStorage.removeItem('token');
     this.userIsLoggedIn = false;
     this.usuarioActivo = null;
+    this.router.navigate(['/inicio']);
     this.closeUserModal();
   }
 
   verificarUsuarioActivo(): void {
-    this.apollo
-      .query<{ conectado?: any}>({
-        query: gql`
-          query {
-            conectado {
-              nombresCompleto
-              correo
+    if (this.authToken) {
+      this.apollo
+        .query<{ conectado?: any }>({
+          query: gql`
+            query {
+              conectado {
+                nombresCompleto
+                correo
+                tipoUsuario
+              }
+            }
+          `,
+          context: {
+            headers: {
+              Authorization: `JWT ${this.authToken}`
             }
           }
-        `
-      })
+        })
       .subscribe(({ data }) => {
         if (data?.conectado) {
           this.usuarioActivo = data?.conectado;
-          this.userIsLoggedIn = true; // Usuario conectado
+          this.userIsLoggedIn = true;
+          this.tipoUsuario = this.usuarioActivo.tipoUsuario;
         } else {
           this.userIsLoggedIn = false; // Usuario no conectado
         }
-      });
+     });
+    }
   }
 }
