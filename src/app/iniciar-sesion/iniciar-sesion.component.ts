@@ -12,6 +12,7 @@ export class IniciarSesionComponent {
   contrasena: string = '';
   showNotification: boolean = false;
   showInvalidPassword: boolean = false;
+  showPassword: boolean = false;
 
   constructor(private authService: AuthService, private router: Router) {}
 
@@ -34,17 +35,17 @@ export class IniciarSesionComponent {
             },
             (error) => {
               console.log('Error al iniciar sesión:', error);
-              // Aquí puedes manejar el error de inicio de sesión
+              this.showInvalidPassword = true;
             }
           );
-        this.showNotification = false;
-        this.showInvalidPassword = false;
-      }
-      else{
-      this.showInvalidPassword = true;
       }
     }
   }
+
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
+  }
+  
   contrasenaValida(): boolean {
     return true;
 }
