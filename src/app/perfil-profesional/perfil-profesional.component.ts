@@ -55,7 +55,6 @@ export class PerfilProfesionalComponent {
         const reader = new FileReader();
         reader.onload = () => {
             this.imagenUsuario = reader.result;
-            // Aquí puedes enviar la imagen al servidor si es necesario
         };
         reader.readAsDataURL(file);
     }
