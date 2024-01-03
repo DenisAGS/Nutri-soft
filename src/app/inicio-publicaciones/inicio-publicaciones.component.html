@@ -13,89 +13,97 @@
 </header>
 
 <body>
+  <div class="secciones">
+    <div class="publicaciones-inicio">
+      <div class="crear-publicacion">
+        <img src="../../assets/images/usuario.png" alt="">
+        <button class="btn-crear-publicacion" (click)="abrirVentana()">
+          <a>¿Quieres publicar un tip?</a>
+        </button>
+      </div>
+        <h1>Bienvenido a Nutri-soft donde nos preocupamos por tu salud</h1>
 
-    <div class="secciones">
-        <div class="publicaciones-inicio">
-          <div class="crear-publicacion">
-            <img src="../../assets/images/usuario.png" alt="">
-            <button class="btn-crear-publicacion" (click)="abrirVentana()">
-              <a>¿Quieres publicar un tip?</a>
-            </button>
-          </div>
-            <h1>Bienvenido a Nutri-soft donde nos preocupamos por tu salud</h1>
-            <div *ngFor="let pubInfo of listaPubInfo" class="pub-info">
-                <div class="header-info">
-                  <div class="content-datos">
-                    <div class="img-user">
-                      <img src="../../assets/images/usuario.png" alt="">
-                    </div>
-                    <div class="text-user">
-                      <span class="title1">{{ pubInfo.nombre }}</span>
-                      <span class="title2">{{ pubInfo.especialidad }}</span>
-                    </div>
-                  </div>
-                  <div class="heart-reaccion">
-                    <i class="fa fa-heart" [ngClass]="{ 'filled': pubInfo.isChecked }" (click)="toggleCheckbox(pubInfo)"></i>
-                    <span>{{ pubInfo.likesCount }}</span>
-                  </div>
-                </div>
-                <div class="body-info">
-                  <div class="img-body">
-                    <img src="../../assets/images/publicaciones/ensalada.png" alt="">
-                  </div>
-                  <div class="texto-body">
-                    <span>{{ pubInfo.fecha }}</span>
-                    <h6>{{ pubInfo.titulo }}</h6>
-                    <ul>
-                      <li *ngFor="let contenidoItem of pubInfo.contenido">{{ contenidoItem }}</li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="btn-funciones">
-                  <button class="compartir">
-                    <a>Compartir</a>
-                    <img src="../../assets/images/publicaciones/flecha-abajo.png" alt="">
-                  </button>
-                  <button class="comentarios" (click)="toggleComentarios()">
-                    <a>Comentarios</a>
-                    <img src="../../assets/images/publicaciones/flecha-abajo.png" alt="">
-                </button>
-                    <div class="comentarios" *ngIf="comentariosVisible">
-                        <input [(ngModel)]="nuevoComentario" placeholder="Escribe un comentario">
-                        <button (click)="agregarComentario(nuevoComentario)">Agregar Comentario</button>
-                        <div *ngFor="let comentario of listaComentarios">
-                            {{ comentario }}
-                        </div>
-                    </div>
-                    <button class="seguir">
-                        <a>Seguir</a>
-                    </button>
-                    <button class="guardar" (click)="toggleCheckboxSave(pubInfo)">
-                        <i class="fa fa-bookmark" [ngClass]="{ 'filled': pubInfo.isCheckedSave }"></i>
-                        <a>Guardar</a>
-                    </button>
-                </div>
-            </div>
+        <div class="noPublic" *ngIf="!publicaciones || publicaciones.length === 0">
+          <p>No hay publicaciones recientes</p>
         </div>
-        <div class="fijo-menu">
-            <div class="btn-nutriologo">
-                <button class="nutriologos-disponibles">
-                    <a>Ve los nutriologos disponibles en la zona</a>
-                </button>
-                <button class="container-chatbot" routerLink="/chatbot">
-                    <a>Chatbot</a>
-                </button>
+
+        <div *ngFor="let pubInfo of publicaciones" class="pub-info">
+          <div class="header-info">
+            <div class="content-datos">
+              <div class="img-user">
+                <img src="../../assets/images/usuario.png" alt="">
+              </div>
+              <div class="text-user">
+                <span class="title1">{{pubInfo.Usuario.nombresCompleto}} - {{pubInfo.Usuario.direccion.ciudad}}</span>
+                <span class="title2">nutriologo</span>
+              </div>
             </div>
-            <div class="datos">
-                <div class="sabias-que">
-                    <h5>¡Sabias que!</h5>
-                    <p>100 gr de alitas de pollo es igual a 300 kg de pechuga de pollo asada que tiene 75 k cal</p>
-                    <img src="../../assets/images/publicaciones/alitas.png" alt="">
-                </div>
+
+            <div class="heart-reaccion">
+              <i class="fa fa-heart" [ngClass]="{ 'filled': pubInfo.isChecked }" (click)="toggleCheckbox(pubInfo)"></i>
+              <span>{{ pubInfo.likes }}</span>
+            </div>
+
+          </div>
+          <div class="body-info">
+            <div class="img-body">
+              <img [src]="pubInfo.urlImagen" alt="">
+            </div>
+            <div class="texto-body">
+              <span>{{ pubInfo.fecha | date: 'dd/MM/yyyy' }}</span>
+              <h6>{{ pubInfo.titulo }}</h6>
+              <ul>
+                <li >{{ pubInfo.contenido }}</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="btn-funciones">
+            <button class="compartir">
+              <a>Compartir</a>
+              <img src="../../assets/images/publicaciones/flecha-abajo.png" alt="">
+            </button>
+            <button class="comentarios" (click)="toggleComentarios()">
+              <a>Comentarios</a>
+              <img src="../../assets/images/publicaciones/flecha-abajo.png" alt="">
+          </button>
+              <div class="comentarios" *ngIf="comentariosVisible">
+                  <input [(ngModel)]="nuevoComentario" placeholder="Escribe un comentario">
+                  <button (click)="agregarComentario(nuevoComentario)">Agregar Comentario</button>
+                  <div *ngFor="let comentario of listaComentarios">
+                      {{ comentario }}
+                  </div>
+              </div>
+              <button class="seguir">
+                  <a>Seguir</a>
+              </button>
+              <button class="guardar" (click)="toggleCheckboxSave(pubInfo)">
+                  <i class="fa fa-bookmark" [ngClass]="{ 'filled': pubInfo.isCheckedSave }"></i>
+                  <a>Guardar</a>
+              </button>
+          </div>
+        </div>
+    </div>
+            
+
+    <div class="fijo-menu">
+        <div class="btn-nutriologo">
+            <button class="nutriologos-disponibles">
+                <a>Ve los nutriologos disponibles en la zona</a>
+            </button>
+            <button class="container-chatbot" routerLink="/chatbot">
+                <a>Chatbot</a>
+            </button>
+        </div>
+        <div class="datos">
+            <div class="sabias-que">
+                <h5>¡Sabias que!</h5>
+                <p>100 gr de alitas de pollo es igual a 300 kg de pechuga de pollo asada que tiene 75 k cal</p>
+                <img src="../../assets/images/publicaciones/alitas.png" alt="">
             </div>
         </div>
     </div>
-
+</div>
 </body>
 
 </html>
