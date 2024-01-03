@@ -1,8 +1,24 @@
+// app-perfil-profesional.component.ts
+
 import { Component } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { PublicacionModalComponent } from '../publicacion-modal/publicacion-modal.component';
 import { Apollo } from 'apollo-angular';
 import { gql } from 'apollo-angular';
+
+class Opinion {
+  nombre: string;
+  calificacion: number;
+  comentario: string;
+  fecha: string;
+
+  constructor(nombre: string, calificacion: number, comentario: string, fecha: string) {
+    this.nombre = nombre;
+    this.calificacion = calificacion;
+    this.comentario = comentario;
+    this.fecha = fecha;
+  }
+}
 
 @Component({
   selector: 'app-perfil-profesional',
@@ -10,15 +26,14 @@ import { gql } from 'apollo-angular';
   styleUrls: ['./perfil-profesional.component.css']
 })
 export class PerfilProfesionalComponent {
-  conectadoInfo: any = {}; // Cambié el nombre de la variable para reflejar la nueva consulta
+  conectadoInfo: any = {};
   listaComentarios: string[] = [];
   nuevoComentario: string = '';
   editando = false;
   verMasClicked = false;
-  opiniones: any[] = [];
+  opiniones: Opinion[] = [];
 
-  toggleEdicion(): void{
-
+  toggleEdicion(): void {
     this.editando = !this.editando;
   }
 
@@ -26,7 +41,7 @@ export class PerfilProfesionalComponent {
     this.verMasClicked = !this.verMasClicked;
   }
 
-   constructor(private apollo: Apollo, private modalService: NgbModal) { }
+  constructor(private apollo: Apollo, private modalService: NgbModal) { }
 
   ngOnInit(): void {
     this.obtenerInformacionConectado();
@@ -61,19 +76,25 @@ export class PerfilProfesionalComponent {
       })
       .valueChanges.subscribe((result: any) => {
         this.conectadoInfo = result.data && result.data.conectado ? result.data.conectado : {};
+        this.opiniones = this.conectadoInfo.calificacionesUsuario.map((opinion: any) => {
+          return new Opinion(
+            opinion.usuario.nombresCompleto,
+            opinion.calificacion,
+            opinion.Comentario,
+            opinion.fecha
+          );
+        });
         console.log(this.conectadoInfo);
       });
   }
 
   abrirVentana(): void {
-    const modalRef = this.modalService.open(PublicacionModalComponent, { centered: true});
+    const modalRef = this.modalService.open(PublicacionModalComponent, { centered: true });
   }
 
   toggleCheckboxSave(pubInfo: any) {
     pubInfo.isCheckedSave = !pubInfo.isCheckedSave;
   }
-
-  
 
   agregarComentario(comentario: string) {
     if (comentario.trim() !== '') {
