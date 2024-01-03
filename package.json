@@ -30,11 +30,13 @@
     "apollo-angular-link-http": "^1.11.0",
     "apollo-cache-inmemory": "^1.6.6",
     "apollo-link-http": "^1.5.17",
+    "dotenv": "^16.3.1",
     "font-awesome": "^4.7.0",
     "graphql": "^15.8.0",
     "graphql-tag": "^2.12.6",
     "leaflet": "^1.9.4",
     "ngx-toastr": "^18.0.0",
+    "openai": "^4.24.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"

@@ -83,7 +83,7 @@
               </button>
 
               <div *ngIf="mostrarMensaje" class="mensaje">
-                <p>Debes iniciar sesión para usar esta función</p>
+                <p>{{mensaje}}</p>
               </div>
           </div>
         </div>
@@ -95,7 +95,7 @@
             <button class="nutriologos-disponibles">
                 <a>Ve los nutriologos disponibles en la zona</a>
             </button>
-            <button class="container-chatbot" routerLink="/chatbot">
+            <button *ngIf="estaLogueado" class="container-chatbot" routerLink="/chatbot">
                 <a>Chatbot</a>
             </button>
         </div>
