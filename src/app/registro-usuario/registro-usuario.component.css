@@ -24,7 +24,7 @@ body{
 .wrapper{
     position: relative;
     width: 800px;
-    height: 65vh;
+    height: 100vh;
     display: grid;
     grid-template-columns: 1fr 1fr;
     border: 3px solid #ff8800;
@@ -185,4 +185,9 @@ body{
     font-size: 18px;
     line-height: 24px;
     letter-spacing: 1px;
+}
+
+.notification{
+    font-size: 15px;
+    margin-top: 10px;
 }

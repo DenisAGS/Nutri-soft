@@ -10,11 +10,30 @@ import { gql } from 'apollo-angular';
 export class HeaderInicioComponent implements OnInit{
   userIsLoggedIn: boolean = false;
   usuarioActivo: any;
+  isUserModalOpen = false;
 
   constructor(private apollo: Apollo) {}
 
   ngOnInit(): void {
     this.verificarUsuarioActivo();
+  }
+
+  openUserModal(): void {
+    this.isUserModalOpen = true;
+  }
+
+  closeUserModal(): void {
+    this.isUserModalOpen = false;
+  }
+
+  viewProfile(): void {
+    this.closeUserModal();
+  }
+
+  logout(): void {
+    this.userIsLoggedIn = false;
+    this.usuarioActivo = null;
+    this.closeUserModal();
   }
 
   verificarUsuarioActivo(): void {

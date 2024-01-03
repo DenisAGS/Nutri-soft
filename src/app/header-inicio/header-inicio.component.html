@@ -35,14 +35,20 @@
                 <li><a routerLink="/nosotros">Nosotros</a></li>
                 <li><a routerLink="/chatbot">Chatbot</a></li>
                 <img class="icon-user-login" src="../../assets/images/usuario.png" alt="Usuario">
-                <p class="name-user-login">{{ usuarioActivo.nombresCompleto }}</p>
+                <p (click)="openUserModal()" class="name-user-login">{{ usuarioActivo.nombresCompleto }}</p>
               </ng-container>
+              
+              <div class="modal-container" *ngIf="isUserModalOpen">
+              <app-modal-perfil
+                (viewProfile)="viewProfile()"
+                (logout)="logout()">
+              </app-modal-perfil>
+              </div>
 
               <ng-template #loginButton>
                 <li><a routerLink="/iniciar-sesion"><button>Iniciar sesión</button></a></li>
               </ng-template>
             </ul>
-            
           </nav>
     </header>
 </body>

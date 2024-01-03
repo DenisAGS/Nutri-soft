@@ -28,7 +28,7 @@ header {
 .navbar {
   display: flex;
   padding: 0 10px;
-  max-width: 1200px;
+  max-width: 1100px;
   width: 100%;
   align-items: center;
   justify-content: space-between;
@@ -112,13 +112,18 @@ header a:hover, footer a:hover {
   cursor: pointer;
 }
 
-@media screen and (max-width:1300px){
-    .navbar button{
-        margin-right: 10px;
-    }
+.modal-container {
+  position: fixed;
+  top: 7%;
+  left: 80%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  padding: 20px;
+}
 
-    .navbar .logo img{
-        margin-left: -20px;
+@media screen and (max-width:1300px){
+    .icon-user-login{
+      width: 20px;
     }
 }
 
@@ -154,6 +159,15 @@ header a:hover, footer a:hover {
 
   .navbar #hamburger-btn {
     display: block;
+  }
+
+  .navbar .icon-user-login{
+    width: 20px;
+    height: auto;
+  }
+
+  .navbar .name-user-login{
+    font-size: 15px;
   }
 }
 
