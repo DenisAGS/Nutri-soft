@@ -17,7 +17,7 @@
                 <div class="user">
                     <img class="img-subir" src="../../assets/images/usuario.png" alt="">
                     <div class="nombre">
-                        <h2>{{ nombreUsuario }}</h2>
+                        <h2>{{ conectadoInfo.nombresCompleto }}</h2>
                         <div class="estrellas">
                             <i *ngFor="let _ of [1, 2, 3, 4]" class="fas fa-star"></i>
                             <i class="far fa-star estrella-outline"></i>
@@ -28,19 +28,23 @@
                     <div class="informacion">
                         <div class="campo">
                             <label>Cédula:</label>
+                          
                             <span>{{ cedula }}</span>
+
                         </div>
                         <div class="campo">
                             <label>Dirección:</label>
-                            <span *ngIf="!editando">{{ direccion }}</span>
-                            <input *ngIf="editando" [(ngModel)]="direccion" placeholder="Ingrese su dirección">
+                            <span *ngIf="!editando">{{ conectadoInfo.direccion?.ciudad }}</span>
+                            <input *ngIf="editando" [ngModel]="conectadoInfo.direccion?.ciudad" (ngModelChange)="conectadoInfo.direccion = conectadoInfo.direccion || {}; conectadoInfo.direccion.ciudad = $event" placeholder="Ingrese su dirección">
+
+
                         </div>
                         <div class="campo sobre">
                             <label>Sobre mí:</label>
-                            <span class="sobre-mi" *ngIf="!editando">{{ sobreMi }}</span>
-                            <textarea *ngIf="editando" [(ngModel)]="sobreMi" placeholder="Ingrese información sobre usted" maxlength="50"></textarea>
+                            <span class="sobre-mi" *ngIf="!editando">{{ conectadoInfo.informacion }}</span>
+                            <textarea *ngIf="editando" [(ngModel)]="conectadoInfo.informacion" placeholder="Ingrese información sobre usted" maxlength="50"></textarea>
                             <div *ngIf="editando" class="suma">
-                                Caracteres restantes: {{ 50 - sobreMi.length }}
+                                Caracteres restantes: {{ 50 - conectadoInfo.informacion.length }}
                             </div>
                         </div>
                     </div>
