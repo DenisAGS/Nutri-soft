@@ -51,8 +51,8 @@ body {
   }
 
 .user img{
-  width: 10%;
-  height: 10%;
+  width: 45px;
+  height: 45px;
   margin-left: 10px;
   margin-right: 10px;
   border-radius: 50%;
@@ -294,6 +294,21 @@ body {
     font-weight: 400;
     line-height: normal;
   }
+
+  .icono-cargar-imagen {
+    position:fixed;
+    top: 22%; 
+    left: 135px; 
+    cursor: pointer;
+    background-color: transparent;
+    padding: 8px;
+    border-radius: 50%;
+    color: #fff;
+}
+
+.icono-cargar-imagen i {
+    font-size: 20px;
+}
 
   @media screen and (max-width: 860px) {
     .publicaciones-guardadas{

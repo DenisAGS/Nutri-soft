@@ -32,6 +32,8 @@ export class PerfilProfesionalComponent {
   editando = false;
   verMasClicked = false;
   opiniones: Opinion[] = [];
+  imagenUsuario: string | ArrayBuffer | null = null;
+
 
   toggleEdicion(): void {
     this.editando = !this.editando;
@@ -46,6 +48,18 @@ export class PerfilProfesionalComponent {
   ngOnInit(): void {
     this.obtenerInformacionConectado();
   }
+
+  onFileSelected(event: any) {
+    const file: File = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = () => {
+            this.imagenUsuario = reader.result;
+            // Aquí puedes enviar la imagen al servidor si es necesario
+        };
+        reader.readAsDataURL(file);
+    }
+}
 
   obtenerInformacionConectado(): void {
     this.apollo

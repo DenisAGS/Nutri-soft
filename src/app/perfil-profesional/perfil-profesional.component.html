@@ -17,6 +17,9 @@
                 <div class="user">
                     <input type="file" accept="image/*" style="display: none;" #fileInput (change)="onFileSelected($event)">
                     <img class="img-subir" [src]="imagenUsuario || '../../assets/images/usuario.png'" alt="">
+                    <label class="icono-cargar-imagen" (click)="fileInput.click()">
+                        <i class="fas fa-camera"></i>
+                    </label>   
                     <div class="nombre">
                         <h2>{{ conectadoInfo.nombresCompleto }}</h2>
                         <div class="estrellas">
@@ -25,13 +28,12 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn-cargar-imagen" (click)="fileInput.click()">Cargar nueva imagen</button>
+                     
                 <div class="informacion-adicional">
                     <div class="informacion">
                         <div class="campo">
                             <label>Cédula:</label>
-                          
-                            <span>{{ cedula }}</span>
+                            <span>{{ conectadoInfo.cedula }}</span>
 
                         </div>
                         <div class="campo">
