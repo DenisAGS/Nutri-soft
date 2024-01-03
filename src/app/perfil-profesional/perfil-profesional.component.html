@@ -15,7 +15,11 @@
         <div class="publicaciones-guardadas">
             <div class="datos">
                 <div class="user">
-                    <img class="img-subir" src="../../assets/images/usuario.png" alt="">
+                    <input type="file" accept="image/*" style="display: none;" #fileInput (change)="onFileSelected($event)">
+                    <img class="img-subir" [src]="imagenUsuario || '../../assets/images/usuario.png'" alt="">
+                    <label class="icono-cargar-imagen" (click)="fileInput.click()">
+                        <i class="fas fa-camera"></i>
+                    </label>   
                     <div class="nombre">
                         <h2>{{ conectadoInfo.nombresCompleto }}</h2>
                         <div class="estrellas">
@@ -24,11 +28,11 @@
                         </div>
                     </div>
                 </div>
+                     
                 <div class="informacion-adicional">
                     <div class="informacion">
                         <div class="campo">
                             <label>Cédula:</label>
-                          
                             <span>{{ conectadoInfo.cedula }}</span>
 
                         </div>
