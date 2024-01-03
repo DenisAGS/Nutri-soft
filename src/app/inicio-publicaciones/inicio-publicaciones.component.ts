@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { PublicacionModalComponent } from '../publicacion-modal/publicacion-modal.component';
+import { Apollo } from 'apollo-angular';
+import { gql } from 'apollo-angular';
 
 @Component({
   selector: 'app-inicio-publicaciones',
@@ -8,42 +10,46 @@ import { PublicacionModalComponent } from '../publicacion-modal/publicacion-moda
   styleUrls: ['./inicio-publicaciones.component.css']
 })
 export class InicioPublicacionesComponent {
-  listaPubInfo = [
-    {
-      nombre: 'Obeb Hipolito - Orizaba',
-      especialidad: 'Especialidad Nutricion',
-      fecha: '10/08/23',
-      titulo: '¡Tips para tener un dia lleno de energia!',
-      contenido: [
-        'Dormir lo suficiente: Dormir entre 7 y 9 horas por noche es esencial para recuperar la energía física y mental',
-        'Desayunar bien: Un desayuno equilibrado, rico en proteínas, fibra y carbohidratos saludables, te proporcionará la energía necesaria para comenzar el día.',
-        'Hidratación: Mantenerse hidratado es clave para tener energía durante todo el día. Se recomienda beber al menos 8 vasos de agua al día.'
-      ],
 
-      isChecked: false,
-      likesCount: 0,
-      isCheckedSave: false 
-    },
-    {
-      nombre: 'Obeb Hipolito - Orizaba',
-      especialidad: 'Especialidad Nutricion',
-      fecha: '10/08/23',
-      titulo: '¡Tips para tener un dia lleno de energia!',
-      contenido: [
-        'Dormir lo suficiente: Dormir entre 7 y 9 horas por noche es esencial para recuperar la energía física y mental',
-        'Desayunar bien: Un desayuno equilibrado, rico en proteínas, fibra y carbohidratos saludables, te proporcionará la energía necesaria para comenzar el día.',
-        'Hidratación: Mantenerse hidratado es clave para tener energía durante todo el día. Se recomienda beber al menos 8 vasos de agua al día.'
-      ],
+  publicaciones: any[] = [];
+  likesPublicacion = 0;
+  idPublicacion = 0;
 
-      isChecked: false,
-      likesCount: 0,
-      isCheckedSave: false 
-    },
-  ];
+  constructor(private apollo: Apollo, private modalService: NgbModal) { }
+
+  ngOnInit(): void {
+    this.obtenerPublicaciones();
+  }
+
+  obtenerPublicaciones(): void {
+    this.apollo
+      .watchQuery({
+        query: gql`
+          query ObtenerPublicaciones {
+            publicaciones {
+              id
+              Usuario {
+                nombresCompleto
+                direccion {
+                  ciudad
+                }
+              }
+              fecha
+              likes
+              urlImagen
+              titulo
+              contenido
+            }
+          }
+        `
+      })
+      .valueChanges.subscribe((result: any) => {
+        this.publicaciones = result.data && result.data.publicaciones ? result.data.publicaciones : [];
+        console.log(this.publicaciones);
+      });
+  }
 
   totalLikes = 0;
-
-  constructor(private modalService: NgbModal) {}
 
   abrirVentana(): void {
     const modalRef = this.modalService.open(PublicacionModalComponent, { centered: true});
@@ -61,7 +67,7 @@ export class InicioPublicacionesComponent {
   }
   
   private actualizarTotalLikes() {
-    this.totalLikes = this.listaPubInfo.reduce((total, pubInfo) => total + pubInfo.likesCount, 0);
+    this.totalLikes = this.publicaciones.reduce((total, pubInfo) => total + pubInfo.likesCount, 0);
   }
 
   comentariosVisible = false;
@@ -75,7 +81,7 @@ export class InicioPublicacionesComponent {
   agregarComentario(comentario: string) {
     if (comentario.trim() !== '') {
       this.listaComentarios.push(comentario);
-      this.nuevoComentario = ''; // Limpia el campo de entrada después de agregar el comentario
+      this.nuevoComentario = '';
     }
   }
 
