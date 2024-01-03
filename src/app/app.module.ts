@@ -20,6 +20,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
+import { OpenAIConfig } from './open-ai/openIAConfig.component';
 
 
 /*Conexion*/
@@ -37,6 +38,7 @@ import { AuthInterceptor } from './auth-interceptor';
 import { EditarUsuarioComponent } from './editar-usuario/editar-usuario.component';
 import { CommonModule } from '@angular/common'
 import { ModalPerfilComponent } from './modal-perfil/modal-perfil.component';
+import { OpenAIComponent } from './open-ai/open-ai.component';
 
 const uri = 'http://127.0.0.1:8000/graphql/'; // <-- add the URL of the GraphQL server here
 export function createApollo(httpLink: HttpLink): ApolloClientOptions<any> {
@@ -62,7 +64,8 @@ export function createApollo(httpLink: HttpLink): ApolloClientOptions<any> {
     DireccionModalComponent,
     PublicacionModalComponent,
     EditarUsuarioComponent,
-    ModalPerfilComponent
+    ModalPerfilComponent,
+    OpenAIComponent,
   ],
   imports: [
     MatInputModule,

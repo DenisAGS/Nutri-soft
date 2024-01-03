@@ -151,7 +151,7 @@ body {
     margin: 0px 3%;
     position: sticky;
     top: 0;
-    display: none;
+    display: grid;
 }
 
 .fijo-menu .nutriologos-disponibles {

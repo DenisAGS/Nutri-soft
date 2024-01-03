@@ -7,6 +7,7 @@ import { AuthService } from '../auth.service';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
+
 @Component({
   selector: 'app-inicio-publicaciones',
   templateUrl: './inicio-publicaciones.component.html',
@@ -21,6 +22,7 @@ export class InicioPublicacionesComponent {
   idPublicacion = 0;
   estaLogueado: boolean = false;
   mostrarMensaje = false;
+  mensaje = '';
 
   constructor(private apollo: Apollo, private modalService: NgbModal, private authService: AuthService) { }
 
@@ -104,12 +106,18 @@ export class InicioPublicacionesComponent {
   guardarPublicacion(publicacionId: any): void {
     if (!this.estaLogueado) {
       this.mostrarMensaje = true;
+      this.mensaje = 'Debes iniciar sesión para guardar la publicación.';
       setTimeout(() => {
         this.mostrarMensaje = false;
       }, 2000);
     } else {
       this.verificarPublicacionGuardada(publicacionId).subscribe((estaGuardada: boolean) => {
         if (estaGuardada) {
+          this.mostrarMensaje = true;
+          this.mensaje = 'la publicacion ya esta guardada.';
+          setTimeout(() =>{
+            this.mostrarMensaje = false;
+          },2000)
           console.log('La publicación ya está guardada.');
         } else {
           this.apollo.mutate({
