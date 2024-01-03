@@ -15,7 +15,7 @@
         <div class="publicaciones-guardadas">
             <div class="datos">
                 <div class="user">
-                    <img src="../../assets/images/usuario.png" alt="">
+                    <img class="img-subir" src="../../assets/images/usuario.png" alt="">
                     <div class="nombre">
                         <h2>{{ conectadoInfo.nombresCompleto }}</h2>
                         <div class="estrellas">
@@ -28,8 +28,9 @@
                     <div class="informacion">
                         <div class="campo">
                             <label>Cédula:</label>
-                            <span *ngIf="!editando">{{ conectadoInfo.cedula }}</span>
-                            <input *ngIf="editando" [(ngModel)]="conectadoInfo.cedula" placeholder="Ingrese su cédula">
+                          
+                            <span>{{ cedula }}</span>
+
                         </div>
                         <div class="campo">
                             <label>Dirección:</label>
