@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Apollo } from 'apollo-angular';
-import { gql } from 'apollo-angular';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-header-inicio',
@@ -16,15 +16,23 @@ export class HeaderInicioComponent implements OnInit{
   authToken: string = '';
   tipoUsuario: string = '';
 
-  constructor(private apollo: Apollo, private router: Router) {}
+  constructor(private apollo: Apollo, private router: Router, private authService: AuthService) {}
 
   ngOnInit(): void {
     this.authToken = localStorage.getItem('token') || '';
-    this.verificarUsuarioActivo();
+    this.authService.verificarUsuarioActivo();
+    this.authService.userIsLoggedIn.subscribe((LoggedIn: boolean) => {
+      this.userIsLoggedIn = LoggedIn;
+    });
+
+    this.authService.usuarioActivo.subscribe((usuario: any) => {
+      this.usuarioActivo = usuario;
+      this.tipoUsuario = usuario?.tipoUsuario || '';
+    });
   }
 
   openUserModal(): void {
-    this.isUserModalOpen = true;
+    this.isUserModalOpen = !this.isUserModalOpen;
   }
 
   closeUserModal(): void {
@@ -37,40 +45,14 @@ export class HeaderInicioComponent implements OnInit{
 
   logout(): void {
     localStorage.removeItem('token');
+    localStorage.removeItem('tipoUsuario');
     this.userIsLoggedIn = false;
     this.usuarioActivo = null;
     this.router.navigate(['/inicio']);
     this.closeUserModal();
   }
 
-  verificarUsuarioActivo(): void {
-    if (this.authToken) {
-      this.apollo
-        .query<{ conectado?: any }>({
-          query: gql`
-            query {
-              conectado {
-                nombresCompleto
-                correo
-                tipoUsuario
-              }
-            }
-          `,
-          context: {
-            headers: {
-              Authorization: `JWT ${this.authToken}`
-            }
-          }
-        })
-      .subscribe(({ data }) => {
-        if (data?.conectado) {
-          this.usuarioActivo = data?.conectado;
-          this.userIsLoggedIn = true;
-          this.tipoUsuario = this.usuarioActivo.tipoUsuario;
-        } else {
-          this.userIsLoggedIn = false; // Usuario no conectado
-        }
-     });
-    }
+  getUsuarioActivo(): boolean {
+    return this.userIsLoggedIn;
   }
 }
