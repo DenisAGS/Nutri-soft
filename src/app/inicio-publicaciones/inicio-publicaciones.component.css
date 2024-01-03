@@ -320,7 +320,7 @@ body {
     border: none;
     border-radius: 10px;
     cursor: pointer;
-    display: none;
+    display: flex;
 }
 
 .btn-funciones .guardar {
@@ -330,11 +330,11 @@ body {
     width: 130px;
     height: 39px;
     background-color: #FF9B9B;
-    display: none;
+    display: flex;
 }
 
 .crear-publicacion {
-    display: none;
+    display: flex;
     align-items: center;
     justify-content: center;
     margin-top: 20px;    
