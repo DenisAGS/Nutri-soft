@@ -15,7 +15,7 @@
 <body>
   <div class="secciones">
     <div class="publicaciones-inicio">
-      <div class="crear-publicacion">
+      <div class="crear-publicacion" *ngIf="tipoUsuario === 'nutriologo'">
         <img src="../../assets/images/usuario.png" alt="">
         <button class="btn-crear-publicacion" (click)="abrirVentana()">
           <a>¿Quieres publicar un tip?</a>
@@ -59,7 +59,7 @@
           </div>
           
           <div class="btn-funciones">
-            <button class="compartir">
+            <button class="compartir" (click)="compartir()">
               <a>Compartir</a>
               <img src="../../assets/images/publicaciones/flecha-abajo.png" alt="">
             </button>
@@ -74,13 +74,17 @@
                       {{ comentario }}
                   </div>
               </div>
-              <button class="seguir">
+              <button class="seguir" (click)="seguir()">
                   <a>Seguir</a>
               </button>
-              <button class="guardar" (click)="toggleCheckboxSave(pubInfo)">
-                  <i class="fa fa-bookmark" [ngClass]="{ 'filled': pubInfo.isCheckedSave }"></i>
+              <button class="guardar"(click)="guardarPublicacion(pubInfo.id)">
+                  <i class="fa fa-bookmark" [ngClass]="{ 'filled': pubInfo.id }"></i>
                   <a>Guardar</a>
               </button>
+
+              <div *ngIf="mostrarMensaje" class="mensaje">
+                <p>Debes iniciar sesión para usar esta función</p>
+              </div>
           </div>
         </div>
     </div>
