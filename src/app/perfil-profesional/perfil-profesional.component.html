@@ -69,15 +69,15 @@
                     <ng-container *ngFor="let opinion of opiniones">
                         <div class="perfil" *ngIf="verMasClicked || opiniones.indexOf(opinion) < 3">
                             <div class="texto-opinion">
-                                <p>{{ opinion.texto }}</p>
+                                <p>{{ opinion.comentario }}</p>
                                 <div class="info">
                                     <img src="../../assets/images/user-comentarios.png" alt="">
                                     <div class="nombre-comentarios">
-                                        <div class="estrellas">
-                                            <i *ngFor="let _ of [1, 2, 3, 4]" class="fas fa-star"></i>
-                                            <i class="far fa-star estrella-outline"></i>
-                                        </div>
-                                        <h5>{{ opinion.nombre }}</h5>
+                                      <div class="estrellas">
+                                        <i *ngFor="let _ of [1, 2, 3, 4,5]" class="fas fa-star"></i>
+                                        <i class="far fa-star estrella-outline"></i>
+                                      </div>
+                                      <h4>{{ opinion.nombre }}</h4>
                                     </div>
                                 </div>
                             </div>
