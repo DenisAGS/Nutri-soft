@@ -11,6 +11,7 @@ export class PerfilProfesionalComponent {
   direccion = 'Calle principal';
   sobreMi = '¡Hola soy obed!';
   editando = false;
+  imagenUsuario: string | ArrayBuffer | null = null;
 
   toggleEdicion(): void{
 
@@ -30,4 +31,15 @@ export class PerfilProfesionalComponent {
   toggleVerMas(): void {
     this.verMasClicked = !this.verMasClicked;
   }
+
+  onFileSelected(event: any) {
+    const file: File = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = () => {
+            this.imagenUsuario = reader.result;
+        };
+        reader.readAsDataURL(file);
+    }
+}
 }

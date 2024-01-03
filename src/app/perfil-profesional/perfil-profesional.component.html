@@ -15,7 +15,8 @@
         <div class="publicaciones-guardadas">
             <div class="datos">
                 <div class="user">
-                    <img class="img-subir" src="../../assets/images/usuario.png" alt="">
+                    <input type="file" accept="image/*" style="display: none;" #fileInput (change)="onFileSelected($event)">
+                    <img class="img-subir" [src]="imagenUsuario || '../../assets/images/usuario.png'" alt="">
                     <div class="nombre">
                         <h2>{{ nombreUsuario }}</h2>
                         <div class="estrellas">
@@ -24,6 +25,7 @@
                         </div>
                     </div>
                 </div>
+                <button class="btn-cargar-imagen" (click)="fileInput.click()">Cargar nueva imagen</button>
                 <div class="informacion-adicional">
                     <div class="informacion">
                         <div class="campo">
