@@ -29,6 +29,10 @@ body{
     box-shadow: 0px 4px 10px 0px #F80, 0px -4px 10px 0px #F80; 
 }
 
+.ver{
+    cursor: pointer;
+}
+
 .form{
     display: flex;
     flex-direction: column;

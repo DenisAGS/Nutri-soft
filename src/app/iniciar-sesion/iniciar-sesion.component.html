@@ -14,15 +14,15 @@
                 Todos los campos deben ser rellenados.
             </div>
             <div *ngIf="showInvalidPassword" class="notification">
-                La contraseña es inválida. Inténtalo de nuevo.
+                La contraseña es inválida. <br> Inténtalo de nuevo.
             </div>
             <div class="inp">
                 <input type="text" name="correo" id="correo" placeholder="correo" [(ngModel)]="correo" required>
                 <i class="fa-solid fa-user"></i>
             </div>
             <div class="inp">
-                <input type="password" name="contrasena" id="contrasena" placeholder="Contraseña" [(ngModel)]="contrasena" required>
-                <i class="fa fa-eye"></i>  
+                <input type="password" name="contrasena" id="contrasena" placeholder="Contraseña" [(ngModel)]="contrasena" required [type]="showPassword ? 'text' : 'password'">
+                <i class="fa fa-eye ver" (click)="togglePasswordVisibility()"></i>  
             </div>
             <button class="submit">Iniciar sesion</button>
             <p class="footer">¿No tienes una cuenta? <a routerLink="/registro" class="link">Por favor, Registrate</a></p>
