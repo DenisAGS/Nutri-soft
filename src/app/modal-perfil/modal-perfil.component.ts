@@ -6,6 +6,9 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./modal-perfil.component.css']
 })
 export class ModalPerfilComponent {
+
+  tipoUsuario = localStorage.getItem('tipoUsuario');
+
   @Output() viewProfile = new EventEmitter<void>();
   @Output() logout = new EventEmitter<void>();
 

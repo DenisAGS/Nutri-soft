@@ -1,6 +1,6 @@
 <div class="user-modal">
-  <button id="ver-perfil-profesional" routerLink="/perfil-profesional">Ver Perfil Profesional</button>
-  <button id="ver-perfil-usuario" routerLink="/perfil-usuario">Ver Perfil Normal</button>
+  <button *ngIf="tipoUsuario === 'nutriologo'" id="ver-perfil-profesional" routerLink="/perfil-profesional">Ver Perfil</button>
+  <button *ngIf="tipoUsuario === 'normal'" id="ver-perfil-usuario" routerLink="/perfil-usuario">Ver Perfil</button>
   <button id="cerrar-sesion" (click)="onLogout()">Cerrar sesión</button>
 </div>
 
