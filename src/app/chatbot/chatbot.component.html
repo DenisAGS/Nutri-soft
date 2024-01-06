@@ -14,8 +14,8 @@
 <body>
     <div class="secciones">
         <div class="chat-container">
-            <div class="mensaje-container" *ngFor="let mensaje of mensajes">
-              <div [ngClass]="{'user-mensaje': mensaje.isUser, 'bot-mensaje': !mensaje.isUser}">
+            <div class="mensaje-container" *ngFor="let mensaje of mensajes" [ngClass]="{'user-mensaje': mensaje.isUser, 'bot-mensaje': !mensaje.isUser}">
+              <div class="message-content">
                 {{ mensaje.text }}
               </div>
             </div>
